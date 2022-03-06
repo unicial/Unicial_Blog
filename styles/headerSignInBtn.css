@@ -1,0 +1,30 @@
+.c-header-signBtn {
+  width: 107px;
+  height: 40px;
+  border: double 1px transparent;
+  border-radius: 100px;
+  background-image: linear-gradient(#21263f, #21263f),
+    radial-gradient(circle at top left, #7f64e2, #41a6ef);
+  background-clip: content-box, border-box;
+  background-origin: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.c-header-signBtnContent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+}
+.c-header-signMiddle {
+  border: 1px solid #282e4e;
+  height: 20px;
+}
+.c-header-searchIcon {
+  width: 20px;
+  height: 20px;
+}

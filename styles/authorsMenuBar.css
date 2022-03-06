@@ -1,0 +1,78 @@
+.c-author-listRoot {
+  /* text-transform: none; */
+  display: inline-block;
+  /* transition: none; */
+  cursor: pointer;
+}
+.c-author-listContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.c-author-mainLabel {
+  font-family: Lato;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  color: white;
+  /* background: "linear-gradient( #FF7C4C 0%, #FFB03A 100%)",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent", */
+}
+.c-author-dropdownIcon {
+  color: white;
+  margin-top: 2px;
+}
+.c-author-listContainer {
+  display: flex;
+  align-items: center;
+  /* margin-right: 10px; */
+}
+.c-author-listLabel {
+  font-family: Lato;
+  font-size: 15px;
+  line-height: 40px;
+  font-weight: 400;
+  color: #96a1db;
+  opacity: 70%;
+}
+.c-author-listLabel:hover {
+  opacity: 100%;
+  color: white;
+}
+.c-author-activeListLabel {
+  opacity: 100%;
+  color: white;
+}
+.c-author-popover {
+  top: 140px;
+}
+.c-author-popover .MuiPopover-paper {
+  background-color: #1a1f37;
+  margin-bottom: 70px;
+  border-radius: 15px;
+  position: absolute;
+  min-width: 184px;
+  padding: 11px 5px;
+  /* top: 140px; */
+}
+.c-author-menuItem .MuiMenuItem-root {
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  min-width: 184px;
+  padding: 10px 16px;
+  cursor: pointer;
+  position: relative;
+  position: relative;
+}
+.c-author-menuItem .MuiMenuItem-root:hover {
+  background-color: #24212933;
+}
+.c-author-imgContainer {
+  border-radius: 100%;
+  width: 29px;
+  height: 29px;
+  margin-right: 16px;
+}
