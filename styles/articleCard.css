@@ -1,0 +1,58 @@
+.c-articleCardContainer {
+  cursor: pointer;
+  margin-bottom: 45px;
+}
+.c-articleCard-imgContainer {
+  width: 100%;
+  height: 250px;
+  border-radius: 13px;
+  margin-bottom: 19px;
+}
+.c-articleCard-dateContainer {
+  display: flex;
+  text-align: start;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.c-articleCard-dateTitle {
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #96a1db;
+}
+
+.c-articleCard-comma {
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  background-color: #96a1db;
+  margin-left: 11px;
+  margin-right: 11px;
+}
+
+.c-articleCard-dateLabel {
+  color: white;
+  font-family: Lato;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 26px;
+}
+.c-articleCard-mainContent {
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 24px;
+  font-synthesis: 37px;
+  color: white;
+  margin-bottom: 13px;
+}
+.c-articleCard-readMore {
+  font-family: Lato;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+  background: -webkit-linear-gradient(#7f64e2, #41a6ef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

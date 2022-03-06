@@ -1,0 +1,39 @@
+.c-commonBtn-root {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9px;
+  background: linear-gradient(90deg, #ff7c4c 00%, #ffb03a 100%);
+  width: 100%;
+  height: 100%;
+}
+.c-commonBtn-root:hover {
+  background: transparent;
+  border: double 1px transparent;
+  /* border-radius: 9px; */
+  background-image: linear-gradient(#21263f, #21263f)
+    radial-gradient(circle at top left, #ffb03a, #ffb03a);
+  /* -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  background-clip: content-box border-box;
+  background-origin: border-box;
+  /* // */
+  background: -webkit-linear-gradient(#ff7c4c, #ffb03a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.c-commonBtn-contentContainer {
+  color: white;
+  font-family: Lato;
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.c-commonBtn-letter {
+  margin-right: 17px;
+}

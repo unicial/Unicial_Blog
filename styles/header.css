@@ -7,10 +7,6 @@
   border-bottom: 1px solid #282e4e;
   padding: 0px 10px;
 }
-@media (max-width: 1050px) {
-  .c-header-root {
-  }
-}
 .c-header-container {
   width: 100%;
   max-width: 990px;
@@ -67,6 +63,7 @@
 
 .c-header-nav .MuiButton-label {
   height: 100%;
+  font-family: Lato;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
