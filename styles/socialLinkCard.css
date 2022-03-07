@@ -1,0 +1,53 @@
+.c-socialLinkCard-root {
+  background-color: #282e4e63;
+  opacity: 80%;
+  border-radius: 13px;
+  padding: 40px 13px;
+  cursor: pointer;
+}
+.c-socialLinkCard-root:hover {
+  background-color: #282e4e;
+}
+.c-socialLinkCard-root:hover .c-socialLinkCard-bigsocialIcon {
+  background: linear-gradient(to right, #7f64e2, #41a6ef);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (max-width: 1154px) {
+  .c-socialLinkCard-root {
+    height: 220px;
+  }
+}
+@media (max-width: 960px) {
+  .c-socialLinkCard-root {
+    height: auto;
+  }
+}
+.c-socialLinkCard-iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.c-socialLinkCard-letterContainer {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  text-align: center;
+  color: #96a1db;
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 37px;
+}
+.c-socialLinkCard-boldLetter {
+  color: #bbc4f3;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 37px;
+}
+.c-socialLinkCard-bigsocialIcon {
+  font-size: 59px;
+  color: #96a1db;
+  margin-bottom: 15px;
+}

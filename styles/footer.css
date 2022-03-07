@@ -1,0 +1,118 @@
+.c-footer-root {
+  width: 100%;
+  background-color: #21263f;
+  padding: 21px 30px 17px;
+  border-top: 1px solid #282e4e;
+}
+.c-footer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 1130px) {
+  .c-footer-container {
+    display: block;
+  }
+  .c-footer-rightPart-container {
+    /* width: 1000px; */
+  }
+  .c-footer-rightPart-root {
+    display: flex;
+    justify-content: center;
+  }
+  .c-footer-leftPart {
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
+}
+.c-footer-leftPart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 700px) {
+  .c-footer-leftPart {
+    display: block;
+  }
+  .c-footer-languageMenubarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .c-footer-middleDivide {
+    display: none;
+  }
+  .c-footer-description {
+    text-align: center;
+    margin-top: 22px;
+    margin-bottom: 23px;
+  }
+}
+.c-footer-description {
+  font-family: Lato;
+  font-weight: 400;
+  line-height: 20.4px;
+  font-size: 17px;
+  color: #96a1db;
+}
+.c-footer-middleDivide {
+  width: 1px;
+  height: 12px;
+  background-color: #96a1db;
+  margin-right: 13px;
+  margin-bottom: 2px;
+}
+.c-footer-rightPart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 540px;
+}
+.c-footer-commonLinkContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+}
+.c-footer-commonLink {
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20.4px;
+  color: white;
+}
+.c-footer-socialLinkContainer {
+  width: 176px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.c-footer-socialIcon-container {
+  width: 31px;
+  height: 31px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #ff7c4c 0%, #ffb03a 100%);
+  padding: 6px;
+}
+.c-footer-socialIcon {
+}
+@media (max-width: 600px) {
+  .c-footer-commonLinkRoot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .c-footer-socialLinkRoot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .c-footer-rightPart-container {
+    display: block;
+  }
+}

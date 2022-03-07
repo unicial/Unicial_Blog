@@ -33,3 +33,18 @@ export const authorsData = [
     name: "Allie Grater",
   },
 ];
+
+export const languageData = [
+  {
+    index: 1,
+    name: "English",
+  },
+  {
+    index: 2,
+    name: "Spanish",
+  },
+  {
+    index: 3,
+    name: "Chinese",
+  },
+];

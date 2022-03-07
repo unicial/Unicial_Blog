@@ -1,12 +1,6 @@
 import React from "react";
 import { Box } from "@material-ui/core";
-import {
-  createStyles,
-  withStyles,
-  Theme,
-  Popover,
-  MenuItem,
-} from "@material-ui/core";
+import { Popover, MenuItem } from "@material-ui/core";
 import clsx from "clsx";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 

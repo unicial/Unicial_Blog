@@ -1,0 +1,76 @@
+.c-language-listRoot {
+  /* text-transform: none; */
+  display: inline-block;
+  /* transition: none; */
+  cursor: pointer;
+}
+.c-language-listContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+.c-language-mainLabel {
+  font-family: Lato;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 20.4px;
+  color: white;
+}
+.c-language-dropdownIcon {
+  color: white;
+  width: 9px;
+  height: 4px;
+}
+.c-language-flag {
+  width: 31px;
+  height: 31px;
+  margin-right: 12px;
+}
+.c-language-popover {
+  top: 140px;
+}
+.c-language-popover .MuiPopover-paper {
+  background-color: #1a1f37;
+  /* margin-bottom: 70px; */
+  margin-top: -42px;
+  border-radius: 15px;
+  position: absolute;
+  min-width: 184px;
+  padding: 11px 5px;
+}
+.c-language-menuItem .MuiMenuItem-root {
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  min-width: 184px;
+  padding: 10px 16px;
+  cursor: pointer;
+  position: relative;
+  position: relative;
+}
+.c-language-menuItem .MuiMenuItem-root:hover {
+  background-color: #24212933;
+}
+.c-language-flagImgContainer {
+  border-radius: 100%;
+  width: 29px;
+  height: 29px;
+  margin-right: 16px;
+}
+.c-language-listLabel {
+  font-family: Lato;
+  font-size: 15px;
+  line-height: 40px;
+  font-weight: 400;
+  color: #96a1db;
+  opacity: 70%;
+}
+.c-language-listLabel:hover {
+  opacity: 100%;
+  color: white;
+}
+.c-language-activeListLabel {
+  opacity: 100%;
+  color: white;
+}

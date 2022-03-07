@@ -52,7 +52,10 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 26px;
-  background: -webkit-linear-gradient(#7f64e2, #41a6ef);
+  /* background: -webkit-linear-gradient(#7f64e2, #41a6ef);
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  background: linear-gradient(to right, #7f64e2 0%, #41a6ef 100%);
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
