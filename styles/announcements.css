@@ -1,0 +1,57 @@
+.c-announcements-root {
+  width: 100%;
+  background-color: #21263f;
+  padding: 59px 30px;
+}
+.c-announcements-headerContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
+  height: 300px;
+  border-radius: 13px;
+  background-image: url("/images/announcement_bg.png");
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.c-announcements-TableContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
+}
+.c-announcements-headerBigtitle {
+  font-family: Montserrat;
+  font-weight: 600;
+  font-size: 45px;
+  line-height: 44px;
+  color: white;
+  margin-bottom: 12px;
+}
+.c-announcements-headerSmalltitle {
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: white;
+}
+@media (max-width: 650px) {
+  .c-announcements-headerBigtitle {
+    font-size: 40px;
+  }
+  .c-announcements-headerSmalltitle {
+    font-size: 18px;
+  }
+  .c-announcements-headerContainer {
+    height: 285px;
+  }
+}
+@media (max-width: 510px) {
+  .c-announcements-headerBigtitle {
+    font-size: 33px;
+  }
+  .c-announcements-headerSmalltitle {
+    font-size: 17px;
+  }
+}

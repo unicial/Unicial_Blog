@@ -23,6 +23,12 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.c-commonBtn-root:hover .c-base-rightArrow {
+  /* color: red; */
+  background: -webkit-linear-gradient(to right, #ff7c4c, #ffb03a);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .c-commonBtn-contentContainer {
   color: white;
   font-family: Lato;

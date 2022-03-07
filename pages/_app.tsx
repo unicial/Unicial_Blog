@@ -13,6 +13,7 @@ import "../styles/socialLinkBlock.css";
 import "../styles/socialLinkCard.css";
 import "../styles/footer.css";
 import "../styles/languageMenuBar.css";
+import "../styles/announcements.css";
 import type { AppProps } from "next/app";
 import React from "react";
 import { Provider } from "react-redux";

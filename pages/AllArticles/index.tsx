@@ -31,7 +31,7 @@ export default function AllArticles() {
         <div className="c-allArticles-loadMoreBtnRoot">
           <div className="c-allArticles-loadMoreBtnContainer">
             <CommonBtn letter="LOAD MORE">
-              <ArrowRightAltIcon />
+              <ArrowRightAltIcon className="c-base-rightArrow" />
             </CommonBtn>
           </div>
         </div>

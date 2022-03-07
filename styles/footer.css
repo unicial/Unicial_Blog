@@ -16,9 +16,6 @@
   .c-footer-container {
     display: block;
   }
-  .c-footer-rightPart-container {
-    /* width: 1000px; */
-  }
   .c-footer-rightPart-root {
     display: flex;
     justify-content: center;
