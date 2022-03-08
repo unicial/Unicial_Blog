@@ -1,12 +1,52 @@
+.c-articleCardContainer:hover .c-articleCard-imgContainer {
+  background-color: #7f64e2;
+  opacity: 70%;
+  /* position: relative; */
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
 .c-articleCardContainer {
   cursor: pointer;
   margin-bottom: 20px;
+  border-radius: 18px;
+}
+.c-articleCardContainer:hover {
+  background-image: url("/images/article_bg2.png"),
+    linear-gradient(to right, #6db3f2, #6db3f2);
+  background-size: cover contain;
+  background-position: center, right bottom;
+  background-repeat: no-repeat, no-repeat;
+  transition-duration: 0.5s;
+  /* background-color: #7f64e2; */
+}
+.c-articleCardContainer:hover .c-articleCard-readMore-tag {
+  background-color: white;
+  transform: translateY(-30px);
+  transition-duration: 0.5s;
+}
+.c-articleCardContainer:hover .c-articleCard-mainContent {
+  transform: translateY(-30px);
+  /* transform: translateX(26px); */
+  margin-left: 26px;
+  transition-duration: 0.5s;
+}
+.c-articleCardContainer:hover .c-articleCard-dateContainer {
+  display: none;
+}
+.c-articleCardContainer:hover .c-articleCard-img {
+  display: none;
+  /* src: url("/id"); */
 }
 .c-articleCard-imgContainer {
   width: 100%;
   height: 250px;
   border-radius: 13px;
-  margin-bottom: 19px;
+  /* margin-bottom: 19px; */
+}
+.c-articleCard-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
 }
 .c-articleCard-dateContainer {
   display: flex;
@@ -52,7 +92,19 @@
   color: white;
   margin-bottom: 13px;
 }
-.c-articleCard-readMore {
+
+.c-articleCard-readMore-tag {
+  width: 173px;
+  height: 42px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.c-articleCard-readMore-span {
   font-family: Lato;
   font-weight: 700;
   font-size: 20px;
@@ -63,4 +115,13 @@
   background: linear-gradient(to right, #7f64e2 0%, #41a6ef 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.textclass {
+  padding-top: 19px;
+}
+.c-articleCardContainer:hover .textclass {
+  background-color: #7f64e2;
+  opacity: 70%;
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
 }

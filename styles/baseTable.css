@@ -1,0 +1,33 @@
+.c-baseTable-tableHeaderCell {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+  color: #96a1db;
+  opacity: 50%;
+  font-family: Lato;
+}
+.c-baseTable-tableHeaderCell.MuiTableCell-root {
+  padding: 10px 10px 10px 20px;
+  border-bottom: solid 1px #282e4e;
+}
+.c-baseTable-tableContainer.MuiTableContainer-root {
+  overflow: auto hidden;
+  border: none;
+  padding: 0px;
+  margin-bottom: 20px;
+}
+.c-baseTable-tableContainer .MuiTableCell-root {
+  white-space: nowrap;
+  border-bottom: none;
+}
+.c-baseTable-tableContent :hover {
+  cursor: pointer;
+}
+.c-baseTable-tableContent.MuiTableHead-root {
+  width: 900px;
+  min-width: 100%;
+  table-layout: auto;
+}
+.c-baseTable-tableContent .MuiTableRow-root {
+  border-bottom: 1px solid #96a2db75;
+}

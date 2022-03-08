@@ -25,8 +25,8 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <TopTab />
-      {/* <Announcements /> */}
-      <BlogDetail />
+      <Announcements />
+      {/* <BlogDetail /> */}
       <NewsLetter />
       <SocialLinkBlock />
       <Footer />

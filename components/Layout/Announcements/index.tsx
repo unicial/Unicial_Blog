@@ -1,3 +1,5 @@
+import BlogTable from "../../BlogTable/BlogTable";
+import { announcementTableData } from "../../../config/constant";
 export default function Announcements() {
   return (
     <>
@@ -9,7 +11,7 @@ export default function Announcements() {
           </div>
         </div>
         <div className="c-announcements-TableContainer">
-          <div>this is table</div>
+          <BlogTable rows={announcementTableData} />
         </div>
       </div>
     </>

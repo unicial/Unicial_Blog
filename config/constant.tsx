@@ -48,3 +48,32 @@ export const languageData = [
     name: "Chinese",
   },
 ];
+
+export const announcementTableData = [
+  {
+    index: 1,
+    date: "February 15, 2022",
+    title: "Introducing the Transparency OS",
+    img_src: "/images/article_bg4.png",
+  },
+  {
+    index: 2,
+    date: "February 15, 2022",
+    title: "Guest Post: DAO Committe",
+    img_src:
+      "http://images.ctfassets.net/c0wdbjyqejxk/5x1V3IY0Q…0d433e1b/7b6026bc-46d7-4aa2-982a-e804781e3898.png",
+  },
+  {
+    index: 3,
+    date: "February 15, 2022",
+    title: "Brand new marketplace section: My Store!",
+    img_src: "http://www.example.com/image.gif",
+  },
+  {
+    index: 3,
+    date: "February 15, 2022",
+    title: "Brand new marketplace section: My Store!",
+    img_src:
+      "http://images.ctfassets.net/c0wdbjyqejxk/3Z5FIFpuC…e0704cca/4e99bb5e-6f2a-4588-95fa-60af527829fc.png",
+  },
+];
