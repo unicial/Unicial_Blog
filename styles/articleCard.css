@@ -21,6 +21,10 @@
   font-size: 16px;
   line-height: 26px;
   color: #96a1db;
+  border-bottom: double 1px transparent;
+  background-clip: content-box, border-box;
+  background-image: linear-gradient(#21263f, #21263f),
+    radial-gradient(circle at top left, #ff7c4c, #ffb03a);
 }
 
 .c-articleCard-comma {

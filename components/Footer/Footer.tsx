@@ -18,9 +18,15 @@ export default function () {
             <div className="c-footer-rightPart-container">
               <div className="c-footer-commonLinkRoot">
                 <div className="c-footer-commonLinkContainer">
-                  <a className="c-footer-commonLink">Home</a>
-                  <a className="c-footer-commonLink">Legal Information</a>
-                  <a className="c-footer-commonLink">Press Kit</a>
+                  <a className="c-footer-commonLink" href="#">
+                    Home
+                  </a>
+                  <a className="c-footer-commonLink" href="#">
+                    Legal Information
+                  </a>
+                  <a className="c-footer-commonLink" href="#">
+                    Press Kit
+                  </a>
                 </div>
               </div>
               <div className="c-footer-socialLinkRoot">

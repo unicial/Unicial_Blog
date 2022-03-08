@@ -1,11 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Header from "../components/Header/Header";
 import TopTab from "../components/TopTab/TopTab";
-import AllAricles from "../pages/AllArticles";
-import Announcements from "../pages/Announcements";
+import AllAricles from "../components/Layout/AllArticles";
 import NewsLetter from "../components/NewsLetter/NewsLetter";
 import SocialLinkBlock from "../components/SocialLinkBlock/SocialLinkBlock";
 import Footer from "../components/Footer/Footer";
@@ -26,8 +24,7 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <TopTab />
-      {/* <AllAricles /> */}
-      <Announcements />
+      <AllAricles />
       <NewsLetter />
       <SocialLinkBlock />
       <Footer />

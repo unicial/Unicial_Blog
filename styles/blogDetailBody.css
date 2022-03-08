@@ -1,0 +1,54 @@
+.c-blogDetailBody-root {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
+  margin-top: 60px;
+}
+.c-blogDetailBody-container {
+  padding: 10px 100px;
+}
+.c-blogDetailBody-shareContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 1000px) {
+  .c-blogDetailBody-container {
+    padding: 10px 20px !important;
+  }
+}
+.c-blogDetailBody-markContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.c-blogDetailBody-markDescription {
+  font-family: Lato;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  color: white;
+  margin-left: 19px;
+}
+.c-blogDetailBody-linkContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.c-blogDetailBody-linkTitle {
+  font-family: Lato;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  color: white;
+}
+.c-blogDetailBody-linkIcon {
+  width: 19px;
+  height: 19px;
+  color: #96a1db;
+  margin-left: 11px;
+}
+.c-blogDetailBody-markImg {
+  width: 47px;
+  height: 47px;
+}

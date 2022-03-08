@@ -1,7 +1,7 @@
 import { Grid } from "@material-ui/core";
-import LatestArticle from "../../components/LatestArticle/LatestArticle";
-import ArticleCard from "../../components/ArticleCard/ArticleCard";
-import CommonBtn from "../../components/Base/CommonBtn";
+import LatestArticle from "../../LatestArticle/LatestArticle";
+import ArticleCard from "../../ArticleCard/ArticleCard";
+import CommonBtn from "../../Base/CommonBtn";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 
 export default function AllArticles() {

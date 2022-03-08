@@ -80,6 +80,7 @@
   font-size: 17px;
   line-height: 20.4px;
   color: white;
+  cursor: pointer;
 }
 .c-footer-socialLinkContainer {
   width: 176px;
@@ -93,6 +94,7 @@
   border-radius: 3px;
   background: linear-gradient(90deg, #ff7c4c 0%, #ffb03a 100%);
   padding: 6px;
+  cursor: pointer;
 }
 .c-footer-socialIcon {
 }

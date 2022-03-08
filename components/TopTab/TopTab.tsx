@@ -1,17 +1,37 @@
+import { useRouter } from "next/router";
 import { Button } from "@material-ui/core";
-import { useState } from "react";
-import { toptabLinkData } from "../../config/constant";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 import AuthorsMenuBar from "../AuthorsMenuBar/AuthorsMenuBar";
+import { toptabLinkData } from "../../config/constant";
 import { authorsData } from "../../config/constant";
 
 export default function TopTab() {
   const { t } = useTranslation();
+  const router = useRouter();
   const [toptabActive, setToptabActive] = useState(toptabLinkData.allArticles);
+
   const handleToptabLink = (index: number) => {
     setToptabActive(index);
+
+    switch (index) {
+      case toptabLinkData.allArticles:
+        window.location.href = "/";
+        break;
+      case toptabLinkData.announcements:
+        window.location.href = "/announcements";
+        break;
+      default:
+        window.location.href = "/";
+        break;
+    }
   };
+  useEffect(() => {
+    if (router.asPath.includes("announcements")) {
+      setToptabActive(toptabLinkData.announcements);
+    }
+  }, [toptabActive]);
 
   return (
     <div className="c-toptab-root">
