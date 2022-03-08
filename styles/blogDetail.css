@@ -1,5 +1,10 @@
 .c-blogDetail-root {
   width: 100%;
   background-color: #21263f;
-  padding: 59px 30px;
+  padding: 59px 0px;
+}
+.c-blogDetailFooter-relatedArticleContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
 }

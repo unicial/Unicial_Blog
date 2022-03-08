@@ -17,6 +17,7 @@ import "../styles/announcements.css";
 import "../styles/blogDetail.css";
 import "../styles/blogDetailHeader.css";
 import "../styles/blogDetailBody.css";
+import "../styles/blogDetailFooter.css";
 import type { AppProps } from "next/app";
 import React from "react";
 import { Provider } from "react-redux";
