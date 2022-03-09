@@ -96,6 +96,9 @@
   padding: 6px;
   cursor: pointer;
 }
+.c-footer-socialIcon-container:hover {
+  background-color: #282e4e !important;
+}
 .c-footer-socialIcon {
 }
 @media (max-width: 600px) {

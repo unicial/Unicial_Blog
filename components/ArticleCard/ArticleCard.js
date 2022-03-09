@@ -1,13 +1,20 @@
-export default function ArticleCard() {
+import Link from "../Link/Link";
+
+export default function ArticleCard({
+  title,
+  subtitle,
+  authorName,
+  authorImage,
+  slug,
+  date,
+  coverImage,
+}) {
   return (
-    <div className="c-articleCardRoot">
+    <Link href="/announcements/[slug]" as={`/announcements/${slug}`}>
       <div className="c-articleCardContainer">
-        {/* <div className="c-articleCard-imgRoot"> */}
         <div className="c-articleCard-imgContainer">
           <img src="/images/article_bg2.png" className="c-articleCard-img" />
         </div>
-        {/* </div> */}
-        {/* <img></img> */}
         <div className="textclass">
           <div className="c-articleCard-dateContainer">
             <span className="c-articleCard-dateTitle">DESIGN RESOURCES</span>
@@ -24,6 +31,6 @@ export default function ArticleCard() {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
