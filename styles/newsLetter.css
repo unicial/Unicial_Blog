@@ -87,3 +87,9 @@
   height: 47px;
   margin-top: 12px;
 }
+.c-newsLetter-subrightArrow {
+  display: none;
+}
+.c-newLetter-subscribeBtn:hover .c-newsLetter-subrightArrow {
+  display: block;
+}

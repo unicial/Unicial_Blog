@@ -28,6 +28,24 @@
   min-width: 100%;
   table-layout: auto;
 }
-.c-baseTable-tableContent .MuiTableRow-root {
+.c-blogTable-tableRow {
   border-bottom: 1px solid #96a2db75;
+}
+.c-blogTable-tableRow:hover {
+  background-color: #282e4e;
+}
+.c-blogTable-tableRow:hover .c-blogTable-tableDateCell {
+  padding-left: 50px !important;
+  padding-right: 10px !important;
+  transition-duration: 0.5s;
+}
+.c-blogTable-tableRow:hover .c-blogTable-tableTitleCell {
+  padding-left: 50px !important;
+  padding-right: 10px !important;
+  transition-duration: 0.5s;
+}
+.c-blogTable-tableRow:hover .c-blogTable-tableImageCell {
+  padding-right: 50px !important;
+  padding-left: 10px !important;
+  transition-duration: 0.5s;
 }

@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 interface Props {
   children?: React.ReactNode;
   className?: any;
@@ -13,7 +15,7 @@ export default function CommonBtn({
 }: Props) {
   return (
     <>
-      <div className="c-commonBtn-root" onClick={onClick}>
+      <div className={clsx("c-commonBtn-root", className)} onClick={onClick}>
         <span className="c-commonBtn-contentContainer">
           <span className="c-commonBtn-letter">{letter}</span>
           {children}

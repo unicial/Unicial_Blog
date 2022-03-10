@@ -17,7 +17,12 @@ export default function NewsLetter() {
               className="c-newLetter-input"
             />
             <div className="c-newLetter-subscribeBtnContainer">
-              <CommonBtn letter="SUBSCRIBE" />
+              <CommonBtn
+                letter="SUBSCRIBE"
+                className="c-newLetter-subscribeBtn"
+              >
+                <i className="far fa-arrow-right c-base-rightArrow c-newsLetter-subrightArrow"></i>
+              </CommonBtn>
             </div>
           </div>
         </div>

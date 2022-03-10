@@ -7,6 +7,7 @@
   font-size: 24px !important;
   line-height: 26px;
   color: #96a1db;
+  width: 260px;
 }
 .c-blogTable-tableTitleCell.MuiTableCell-root {
   font-family: Montserrat;
@@ -14,6 +15,7 @@
   font-size: 24px;
   line-height: 37px;
   color: white;
+  width: 1540px;
 }
 .c-blogTable-imgContainer {
   width: 119px;
@@ -23,4 +25,7 @@
   width: 100%;
   height: 100%;
   border-radius: 5px;
+}
+.c-blogTable-tableImageCell.MuiTableCell-root {
+  width: 200px;
 }

@@ -3,7 +3,7 @@ import { Box } from "@material-ui/core";
 import { Popover, MenuItem } from "@material-ui/core";
 import clsx from "clsx";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-
+import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 export default function AuthorsMenuBar(props: any) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const handleOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -30,7 +30,11 @@ export default function AuthorsMenuBar(props: any) {
         <Box className="c-author-listRoot">
           <Box className="c-author-listContainer">
             <Box className="c-author-mainLabel">Author</Box>
-            <ArrowDropDownIcon className="c-author-dropdownIcon" />
+            {anchorEl ? (
+              <ArrowDropUpIcon className="c-author-dropdownIcon" />
+            ) : (
+              <ArrowDropDownIcon className="c-author-dropdownIcon" />
+            )}
           </Box>
         </Box>
       </Box>

@@ -9,23 +9,14 @@
   height: 100%;
 }
 .c-commonBtn-root:hover {
-  background: transparent;
   border: double 1px transparent;
-  /* border-radius: 9px; */
-  background-image: linear-gradient(#21263f, #21263f)
-    radial-gradient(circle at top left, #ffb03a, #ffb03a);
-  /* -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
-  background-clip: content-box border-box;
+  background-image: linear-gradient(#21263f, #21263f),
+    radial-gradient(circle at top left, #ff7c4c, #ffb03a);
+  background-clip: content-box, border-box;
   background-origin: border-box;
-  /* // */
-  background: -webkit-linear-gradient(#ff7c4c, #ffb03a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .c-commonBtn-root:hover .c-base-rightArrow {
-  /* color: red; */
-  background: -webkit-linear-gradient(to right, #ff7c4c, #ffb03a);
+  background: linear-gradient(to right, #ff7c4c 0%, #ffb03a 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -40,6 +31,12 @@
   justify-content: center;
   align-items: center;
 }
-.c-commonBtn-letter {
-  margin-right: 17px;
+.c-base-rightArrow {
+  margin-left: 17px;
+  width: 25px;
+}
+.c-commonBtn-root:hover .c-commonBtn-letter {
+  background: linear-gradient(to right, #ff7c4c 0%, #ffb03a 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

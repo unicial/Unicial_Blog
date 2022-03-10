@@ -9,7 +9,7 @@ interface BlogTableProps {
 
 export default function BlogTable({ rows, columns }: BlogTableProps) {
   const tableRows = rows?.map((row: any, key: any) => (
-    <TableRow key={key}>
+    <TableRow key={key} className="c-blogTable-tableRow">
       <TableCell
         className={clsx("c-blogTable-tableCell", "c-blogTable-tableDateCell")}
       >
@@ -27,12 +27,6 @@ export default function BlogTable({ rows, columns }: BlogTableProps) {
           <div className="c-blogTable-imgContainer">
             <img src={row.img_src} className="c-blogTable-img" />
           </div>
-          //   <div
-          //     className="c-blogTable-imgContainer"
-          //     style={{ backgroundImage: `url("/images/article_bg4.png")` }}
-          //   >
-          //     dfdf
-          //   </div>
         }
       </TableCell>
     </TableRow>

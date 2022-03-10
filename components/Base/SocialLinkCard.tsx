@@ -15,8 +15,7 @@ export default function SocialLinkCard({ kind, onClick }: Props) {
           ) : kind === "telegram" ? (
             <i className="fab fa-telegram-plane c-socialLinkCard-bigsocialIcon"></i>
           ) : (
-            <i className="fa-solid fa-box-archive c-socialLinkCard-bigsocialIcon"></i>
-            // <FontAwesomeIcon icon="fa-solid fa-box-archive" />
+            <i className="fas fa-archive c-socialLinkCard-bigsocialIcon"></i>
           )}
         </div>
         <div className="c-socialLinkCard-letterContainer">

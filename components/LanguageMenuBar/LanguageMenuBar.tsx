@@ -2,8 +2,9 @@ import React from "react";
 import { Box } from "@material-ui/core";
 import { Popover, MenuItem } from "@material-ui/core";
 import clsx from "clsx";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { languageData } from "../../config/constant";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
 
 export default function LanguageMenuBar(props: any) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -39,7 +40,11 @@ export default function LanguageMenuBar(props: any) {
             )}
 
             <Box className="c-language-mainLabel">{itemName}</Box>
-            <ExpandMoreIcon className="c-language-dropdownIcon" />
+            {anchorEl ? (
+              <ExpandLess className="c-header-mobile-icon c-language-dropdownIcon" />
+            ) : (
+              <ExpandMore className="c-header-mobile-icon c-language-dropdownIcon" />
+            )}
           </Box>
         </Box>
       </Box>

@@ -89,6 +89,9 @@
   align-items: center;
 }
 .c-footer-socialIcon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 31px;
   height: 31px;
   border-radius: 3px;
@@ -97,9 +100,12 @@
   cursor: pointer;
 }
 .c-footer-socialIcon-container:hover {
-  background-color: #282e4e !important;
+  background: #282e4e !important;
 }
 .c-footer-socialIcon {
+  margin-top: 3px;
+  margin-left: 1px;
+  color: white;
 }
 @media (max-width: 600px) {
   .c-footer-commonLinkRoot {

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
@@ -7,8 +8,20 @@ import AllAricles from "../components/Layout/AllArticles";
 import NewsLetter from "../components/NewsLetter/NewsLetter";
 import SocialLinkBlock from "../components/SocialLinkBlock/SocialLinkBlock";
 import Footer from "../components/Footer/Footer";
+import { getAllPosts } from "../lib";
+import { useEffect } from "react";
 
 const Home: NextPage = () => {
+  const [posts, setPosts] = useState<any | undefined>();
+
+  useEffect(() => {
+    getAllPosts().then((e: any) => {
+      setPosts(e);
+    });
+  }, []);
+
+  console.log(posts);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -24,7 +37,7 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <TopTab />
-      <AllAricles />
+      <AllAricles posts={posts} />
       <NewsLetter />
       <SocialLinkBlock />
       <Footer />

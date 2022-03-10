@@ -35,10 +35,10 @@ export default function () {
                     <i className="fab fa-discord c-footer-socialIcon"></i>
                   </div>
                   <div className="c-footer-socialIcon-container">
-                    <i className="fab fa-discord c-footer-socialIcon"></i>
+                    <i className="fab fa-reddit-alien c-footer-socialIcon"></i>
                   </div>
                   <div className="c-footer-socialIcon-container">
-                    <i className="fab fa-discord c-footer-socialIcon"></i>
+                    <i className="fab fa-github c-footer-socialIcon"></i>
                   </div>
                   <div className="c-footer-socialIcon-container">
                     <i className="fab fa-twitter c-footer-socialIcon"></i>
