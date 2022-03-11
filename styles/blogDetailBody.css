@@ -12,6 +12,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 @media (max-width: 1000px) {
   .c-blogDetailBody-container {
     padding: 10px 20px !important;

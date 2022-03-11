@@ -13,7 +13,10 @@ export default function AllArticles({ posts }) {
             {posts?.map(({ fields }) => (
               <Grid item xs={12} sm={6} md={4}>
                 <ArticleCard
+                  title={fields.title}
                   slug={fields.slug}
+                  date={fields.date}
+                  coverImage={fields.coverImage.fields.file.url}
                 />
               </Grid>
             ))}

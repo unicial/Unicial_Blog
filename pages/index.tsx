@@ -20,7 +20,7 @@ const Home: NextPage = () => {
     });
   }, []);
 
-  console.log(posts);
+  console.log("posts", posts);
 
   return (
     <div className={styles.container}>

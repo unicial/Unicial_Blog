@@ -14,24 +14,24 @@ interface Props {
 }
 
 export default function BaseTable({ rows, columns }: Props) {
-  const tableColumns = columns?.map((column: any, key: any) => (
-    <TableCell
-      key={column}
-      className={clsx("c-baseTable-tableHeaderCell", {
-        ["c-baseTable-center"]: column === "Status",
-      })}
-    >
-      {column}
-    </TableCell>
-  ));
+  // const tableColumns = columns?.map((column: any, key: any) => (
+  //   <TableCell
+  //     key={column}
+  //     className={clsx("c-baseTable-tableHeaderCell", {
+  //       ["c-baseTable-center"]: column === "Status",
+  //     })}
+  //   >
+  //     {column}
+  //   </TableCell>
+  // ));
 
   return (
     <>
       <TableContainer className="c-baseTable-tableContainer">
         <Table aria-label="simple table" className="c-baseTable-tableContent">
-          <TableHead>
+          {/* <TableHead>
             <TableRow>{tableColumns}</TableRow>
-          </TableHead>
+          </TableHead> */}
           <TableBody>{rows}</TableBody>
         </Table>
       </TableContainer>

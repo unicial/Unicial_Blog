@@ -33,7 +33,7 @@ export default function BlogTable({ rows, columns }: BlogTableProps) {
   ));
   return (
     <>
-      <BaseTable columns={columns} rows={tableRows} />
+      <BaseTable rows={tableRows} columns={columns} />
     </>
   );
 }
