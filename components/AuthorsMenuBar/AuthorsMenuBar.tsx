@@ -9,13 +9,34 @@ import { getAllPosts } from "../../lib";
 export default function AuthorsMenuBar() {
   const [itemName, setitemName] = React.useState(null);
   const [allAuthors, setAllAuthors] = useState<any[] | undefined>();
+  const [uniqueAuthors, setUniqueAuthors] = useState<any[] | undefined>();
 
   useEffect(() => {
     getAllPosts().then((e: any) => {
       if (e?.length > 0) {
         setAllAuthors(e);
         setitemName(e[0]?.fields.author.fields.name);
+
+        //
+        let allAuthorsLength = e?.length !== undefined ? e?.length : 0;
+        let uniqueAllAuthors: any[] = [];
+        let uniqueAllAuthorsSet = new Set();
+
+        for (var i = 0; i < allAuthorsLength; i++) {
+          uniqueAllAuthorsSet.add(e[i]?.fields.author.fields.authorId);
+        }
+        console.log("uniqueAllAuthorsSet.size", uniqueAllAuthorsSet.size);
+        for (var i = allAuthorsLength - 1; i >= 0; i--) {
+          if (uniqueAllAuthorsSet.size === 0) break;
+          if (uniqueAllAuthorsSet.has(e[i]?.fields.author.fields.authorId)) {
+            uniqueAllAuthors.push(e[i]);
+          }
+          uniqueAllAuthorsSet.delete(e[i].fields.author.fields.authorId);
+        }
+        setUniqueAuthors(uniqueAllAuthors);
+        console.log("uniqueallauthorsData", uniqueAllAuthors);
       }
+      console.log("no data");
     });
   }, []);
 
@@ -31,7 +52,13 @@ export default function AuthorsMenuBar() {
 
   const handleItem = (index: number) => {
     alert(index);
-    setitemName(allAuthors[index]?.fields.author.fields.name);
+    console.log(uniqueAuthors[index]?.fields.author.fields.authorId);
+
+    let selItemName =
+      uniqueAuthors[index]?.fields.author.fields.authorId !== undefined
+        ? uniqueAuthors[index]?.fields.author.fields.authorId
+        : null;
+    setitemName(selItemName);
     handleClose();
   };
 
@@ -70,7 +97,7 @@ export default function AuthorsMenuBar() {
         className="c-author-popover"
         style={{ top: "18px" }}
       >
-        {allAuthors?.map((item: any, index: any) => (
+        {uniqueAuthors?.map((item: any, index: any) => (
           <MenuItem
             onClick={() => handleItem(index)}
             key={index}
