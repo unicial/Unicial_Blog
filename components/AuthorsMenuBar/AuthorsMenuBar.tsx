@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "@material-ui/core";
 import { Popover, MenuItem } from "@material-ui/core";
 import clsx from "clsx";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
-export default function AuthorsMenuBar(props: any) {
+import { getAllPosts } from "../../lib";
+
+export default function AuthorsMenuBar() {
+  const [itemName, setitemName] = React.useState(null);
+  const [allAuthors, setAllAuthors] = useState<any[] | undefined>();
+
+  useEffect(() => {
+    getAllPosts().then((e: any) => {
+      if (e?.length > 0) {
+        setAllAuthors(e);
+        setitemName(e[0]?.fields.author.fields.name);
+      }
+    });
+  }, []);
+
+  console.log("allAuthors", allAuthors);
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const handleOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -12,11 +28,10 @@ export default function AuthorsMenuBar(props: any) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const [itemName, setitemName] = React.useState(props.data[0].name);
 
   const handleItem = (index: number) => {
-    // alert(index + props.data[index - 1].content);
-    setitemName(props.data[index - 1].name);
+    alert(index);
+    setitemName(allAuthors[index]?.fields.author.fields.name);
     handleClose();
   };
 
@@ -55,15 +70,15 @@ export default function AuthorsMenuBar(props: any) {
         className="c-author-popover"
         style={{ top: "18px" }}
       >
-        {props.data.map((item: any, index: any) => (
+        {allAuthors?.map((item: any, index: any) => (
           <MenuItem
-            onClick={() => handleItem(item.index)}
+            onClick={() => handleItem(index)}
             key={index}
             className="c-author-menuItem"
           >
             <Box className="c-author-listContainer">
               <img
-                src="/images/author1.png"
+                src={item.fields.author.fields.image.fields.file.url}
                 className="c-author-imgContainer"
               />
               <Box
@@ -71,7 +86,7 @@ export default function AuthorsMenuBar(props: any) {
                   ["c-author-activeListLabel"]: itemName === item.name,
                 })}
               >
-                {item.name}
+                {item.fields.author.fields.name}
               </Box>
             </Box>
           </MenuItem>

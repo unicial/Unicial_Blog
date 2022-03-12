@@ -59,6 +59,7 @@
 .c-latestArticle-image {
   width: 100%;
   height: 100%;
+  border-radius: 13px;
 }
 .c-latestArticle-mainTitle {
   font-family: Montserrat;

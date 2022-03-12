@@ -136,7 +136,8 @@ export default function TopTab() {
           </Button>
         </div>
         <div className="c-toptab-authorsContainer">
-          <AuthorsMenuBar data={authorsData} />
+          {/* <AuthorsMenuBar data={authorsData} /> */}
+          <AuthorsMenuBar />
         </div>
       </div>
     </div>

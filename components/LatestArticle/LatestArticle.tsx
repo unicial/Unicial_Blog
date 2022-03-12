@@ -1,4 +1,18 @@
+import { useEffect, useState } from "react";
+import { getLatestPost } from "../../lib";
+import moment from "moment";
+
 export default function LatestArticle() {
+  const [latestPost, setLatestPost] = useState<any | undefined>();
+
+  useEffect(() => {
+    getLatestPost().then((e: any) => {
+      setLatestPost(e);
+    });
+  }, []);
+
+  // console.log("latestpost##", latestPost.fields.date);
+
   return (
     <>
       <div className="c-latestArticle-container">
@@ -7,19 +21,21 @@ export default function LatestArticle() {
             <span className="c-latestArticle-dateTitle">DESIGN RESOURCES</span>
             <span className="c-latestArticle-comma"></span>
             <span className="c-latestArticle-dateLabel">
-              JAN 2, &nbsp; 2022
+              {moment(latestPost?.fields.date).format("MMMM Do , YYYY")}
             </span>
           </div>
           <div className="c-latestArticle-mainTitle">
-            Behind the scenes of our new design system
+            {latestPost?.fields.title}
           </div>
           <div className="c-latestArticle-mainContent">
-            Sometimes we’re working within time constraints and sometimes we
-            just haven’t yet agreed upon a path forward.
+            {latestPost?.fields.description}
           </div>
         </div>
         <div className="c-latestArticle-rightPart">
-          <img src="/images/earth.png" className="c-latestArticle-image" />
+          <img
+            src={latestPost?.fields.coverImage?.fields.file.url}
+            className="c-latestArticle-image"
+          />
         </div>
       </div>
     </>

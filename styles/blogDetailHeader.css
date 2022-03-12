@@ -8,6 +8,7 @@
   height: 300px;
   border-radius: 13px;
   margin-bottom: 60px;
+  object-fit: cover;
 }
 .c-blogDetailHeader-mainContentContainer {
   padding: 10px 100px;
