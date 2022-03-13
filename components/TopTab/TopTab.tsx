@@ -20,7 +20,19 @@ export default function TopTab() {
         window.location.href = "/";
         break;
       case toptabLinkData.announcements:
-        window.location.href = "/announcements";
+        window.location.href = "/announcement";
+        break;
+      case toptabLinkData.projectUpdates:
+        window.location.href = "/projectUpdates";
+        break;
+      case toptabLinkData.platform:
+        window.location.href = "/platform";
+        break;
+      case toptabLinkData.technology:
+        window.location.href = "/technology";
+        break;
+      case toptabLinkData.tutorials:
+        window.location.href = "/tutorials";
         break;
       default:
         window.location.href = "/";
@@ -28,8 +40,20 @@ export default function TopTab() {
     }
   };
   useEffect(() => {
-    if (router.asPath.includes("announcements")) {
+    if (router.asPath.includes("announcement")) {
       setToptabActive(toptabLinkData.announcements);
+    }
+    if (router.asPath.includes("projectUpdates")) {
+      setToptabActive(toptabLinkData.projectUpdates);
+    }
+    if (router.asPath.includes("platform")) {
+      setToptabActive(toptabLinkData.platform);
+    }
+    if (router.asPath.includes("technology")) {
+      setToptabActive(toptabLinkData.technology);
+    }
+    if (router.asPath.includes("tutorials")) {
+      setToptabActive(toptabLinkData.tutorials);
     }
   }, [toptabActive]);
 

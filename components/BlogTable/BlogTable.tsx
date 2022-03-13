@@ -12,7 +12,10 @@ interface BlogTableProps {
 export default function BlogTable({ rows, columns }: BlogTableProps) {
   console.log("blogtable", rows);
   const tableRows = rows?.map((row: any, key: any) => (
-    <Link href="/announcements/[slug]" as={`/announcements/${row.fields.slug}`}>
+    <Link
+      href="/[contentType]/[slug]"
+      as={`/${row.sys.contentType.sys.id}/${row.fields.slug}`}
+    >
       <TableRow key={key} className="c-blogTable-tableRow">
         <TableCell
           className={clsx("c-blogTable-tableCell", "c-blogTable-tableDateCell")}
@@ -37,7 +40,7 @@ export default function BlogTable({ rows, columns }: BlogTableProps) {
           {
             <div className="c-blogTable-imgContainer">
               <img
-                src={row?.fields.coverImage?.fields.file.url}
+                src={row?.fields.coverImage?.fields?.file?.url}
                 className="c-blogTable-img"
               />
             </div>

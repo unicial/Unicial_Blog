@@ -15,13 +15,13 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "2rem",
     "& p": {
       ...theme.typography.body1,
-      color: "white !important",
+      color: "white ",
     },
     "& h1, h2, h3, h4, h5": {
       fontSize: "1.5rem",
       marginBottom: "0",
       marginTop: "2rem",
-      color: "white !important",
+      color: "white ",
     },
     "& a": {
       background: "linear-gradient(to right, #ff7c4c 0%, #ffb03a 100%)",
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
       // background: "linear-gradient(to right, #7F64E2 0%, #41A6EF  100%)",
       // WebkitBackgroundClip: "text",
       // WebkitTextFillColor: "transparent",
-      color: "white !important",
+      color: "white ",
     },
   },
 }));

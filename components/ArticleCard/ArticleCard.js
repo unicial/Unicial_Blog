@@ -1,14 +1,18 @@
 import Link from "../Link/Link";
 import moment from "moment";
+import { useState } from "react";
 
 export default function ArticleCard({
+  contentType,
   title,
   slug,
   date,
   coverImage,
 }) {
+  // const [toptaburl, setToptabUrl] = useState("");
+
   return (
-    <Link href="/announcements/[slug]" as={`/announcements/${slug}`}>
+    <Link href="/[contentType]/[slug]" as={`/${contentType}/${slug}`}>
       <div className="c-articleCardContainer">
         <div className="c-articleCard-imgContainer">
           <img src={coverImage} className="c-articleCard-img" />

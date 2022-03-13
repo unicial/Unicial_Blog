@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { getLatestPost } from "../../lib";
+import { getLatestAnnouncement } from "../../lib";
 import moment from "moment";
+import Link from "../Link/Link";
 
 export default function LatestArticle() {
   const [latestPost, setLatestPost] = useState<any | undefined>();
 
   useEffect(() => {
-    getLatestPost().then((e: any) => {
+    getLatestAnnouncement().then((e: any) => {
       setLatestPost(e);
     });
+    console.log("latestpost##", latestPost);
   }, []);
-
-  // console.log("latestpost##", latestPost.fields.date);
 
   return (
     <>
@@ -24,9 +24,15 @@ export default function LatestArticle() {
               {moment(latestPost?.fields.date).format("MMMM Do , YYYY")}
             </span>
           </div>
-          <div className="c-latestArticle-mainTitle">
-            {latestPost?.fields.title}
-          </div>
+          <Link
+            href="/[contentType]/[slug]"
+            as={`/${latestPost?.sys.contentType.sys.id}/${latestPost?.fields.slug}`}
+          >
+            <div className="c-latestArticle-mainTitle">
+              {latestPost?.fields.title}
+            </div>
+          </Link>
+
           <div className="c-latestArticle-mainContent">
             {latestPost?.fields.description}
           </div>

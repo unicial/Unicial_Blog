@@ -1,14 +1,13 @@
 import BlogTable from "../../BlogTable/BlogTable";
-import { announcementTableData } from "../../../config/constant";
 import { useState, useEffect } from "react";
-import { getAllAnnouncement } from "../../../lib";
+import { getAllTechnology } from "../../../lib";
 
-export default function Announcements() {
-  const [posts, setPosts] = useState<any | undefined>();
+export default function Technology() {
+  const [technology, setTechnology] = useState<any | undefined>();
 
   useEffect(() => {
-    getAllAnnouncement().then((e: any) => {
-      setPosts(e);
+    getAllTechnology().then((e: any) => {
+      setTechnology(e);
     });
   }, []);
 
@@ -16,13 +15,13 @@ export default function Announcements() {
     <>
       <div className="c-announcements-root">
         <div className="c-announcements-headerContainer">
-          <div className="c-announcements-headerBigtitle">Announcements</div>
+          <div className="c-announcements-headerBigtitle">Technology</div>
           <div className="c-announcements-headerSmalltitle">
-            The latest news from Decentraland.
+            Read about the technology behind our platform.
           </div>
         </div>
         <div className="c-announcements-TableContainer">
-          <BlogTable rows={posts} />
+          <BlogTable rows={technology} />
         </div>
       </div>
     </>

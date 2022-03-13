@@ -70,6 +70,9 @@
   margin-top: 18px;
   margin-bottom: 18px;
 }
+.c-latestArticle-mainTitle:hover {
+  text-decoration: underline;
+}
 .c-latestArticle-mainContent {
   font-family: Lato;
   font-weight: 400;

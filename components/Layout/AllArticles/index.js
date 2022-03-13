@@ -10,13 +10,14 @@ export default function AllArticles({ posts }) {
         <LatestArticle />
         <div className="c-allArticles-photoesContainer">
           <Grid container spacing={4}>
-            {posts?.map(({ fields }) => (
+            {posts?.map((post) => (
               <Grid item xs={12} sm={6} md={4}>
                 <ArticleCard
-                  title={fields.title}
-                  slug={fields.slug}
-                  date={fields.date}
-                  coverImage={fields.coverImage.fields.file.url}
+                  contentType={post.sys.contentType.sys.id}
+                  title={post.fields.title}
+                  slug={post.fields.slug}
+                  date={post.fields.date}
+                  coverImage={post.fields.coverImage.fields.file.url}
                 />
               </Grid>
             ))}

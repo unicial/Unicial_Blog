@@ -13,57 +13,46 @@ import BlogDetailHeader from "../../components/BlogDetail/BlogDetailHeader/BlogD
 import BlogDetailBody from "../../components/BlogDetail/BlogDetailBody/BlogDetailBody";
 import BlogDetailFooter from "../../components/BlogDetail/BlogDetailFooter/BlogDetailFooter";
 
-import { getPostBySlug, getMorePosts, getAllPostsWithSlug } from "../../lib";
+import { getAnnouncementBySlug, getMoreAnnouncement, getAllAnnouncementWithSlug } from "../../lib";
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug();
+  const allAnnouncements = await getAllAnnouncementWithSlug();
   return {
-    paths: allPosts?.map(({ slug }) => `/announcements/${slug}`) ?? [],
+    paths: allAnnouncements?.map(({ slug }) => `/announcement/${slug}`) ?? [],
     fallback: true,
   };
 }
 
 export async function getStaticProps({ params }) {
   console.log("params", params);
-  const postDetail = await getPostBySlug(params.slug);
-  const morePosts = await getMorePosts(params.slug);
+  const announcementDetail = await getAnnouncementBySlug(params.slug);
+  const moreAnnouncements = await getMoreAnnouncement(params.slug);
   return {
     props: {
-      postDetail: postDetail ? postDetail : null,
-      morePosts: morePosts ? morePosts : null,
+      announcementDetail: announcementDetail ? announcementDetail : null,
+      moreAnnouncements: moreAnnouncements ? moreAnnouncements : null,
     },
     revalidate: 1,
   };
 }
 
-export default function BlogDetail({ postDetail, morePosts }) {
-  // const [postDetail, setPostDetail] = useState();
-  // const [morePosts, setMorePosts] = useState();
+export default function BlogDetail({ announcementDetail, moreAnnouncements }) {
 
-  // useEffect(() => {
-  //   getPostBySlug(params.slug).then((e) => {
-  //     setPostDetail(e);
-  //   });
-  //   getMorePosts(params.slug).then((e) => {
-  //     setMorePosts(e);
-  //   })
-  // });
-
-  console.log("post detail", postDetail);
+  console.log("post detail", announcementDetail);
   return (
     <>
       <Header />
       <TopTab />
       <div className="c-blogDetail-root">
         <BlogDetailHeader
-          title={postDetail?.fields.title}
-          slug={postDetail?.fields.slug}
-          description={postDetail?.fields.description}
-          date={postDetail?.fields.date}
-          coverImage={postDetail?.fields.coverImage.fields.file.url}
+          title={announcementDetail?.fields.title}
+          slug={announcementDetail?.fields.slug}
+          description={announcementDetail?.fields.description}
+          date={announcementDetail?.fields.date}
+          coverImage={announcementDetail?.fields.coverImage.fields.file.url}
         />
-        <BlogDetailBody content={postDetail?.fields.content} />
-        <BlogDetailFooter morePosts={morePosts} />
+        <BlogDetailBody content={announcementDetail?.fields.content} />
+        <BlogDetailFooter morePosts={moreAnnouncements} />
       </div>
       <NewsLetter />
       <SocialLinkBlock />

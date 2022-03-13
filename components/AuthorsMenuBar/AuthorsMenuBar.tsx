@@ -4,7 +4,7 @@ import { Popover, MenuItem } from "@material-ui/core";
 import clsx from "clsx";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
-import { getAllPosts } from "../../lib";
+import { getAllAnnouncement } from "../../lib";
 
 export default function AuthorsMenuBar() {
   const [itemName, setitemName] = React.useState(null);
@@ -12,7 +12,7 @@ export default function AuthorsMenuBar() {
   const [uniqueAuthors, setUniqueAuthors] = useState<any[] | undefined>();
 
   useEffect(() => {
-    getAllPosts().then((e: any) => {
+    getAllAnnouncement().then((e: any) => {
       if (e?.length > 0) {
         setAllAuthors(e);
         setitemName(e[0]?.fields.author.fields.name);
