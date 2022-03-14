@@ -21,12 +21,13 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "1.5rem",
       marginBottom: "0",
       marginTop: "2rem",
-      color: "white ",
+      color: "white",
     },
     "& a": {
       background: "linear-gradient(to right, #ff7c4c 0%, #ffb03a 100%)",
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
+      textDecoration: "underline",
     },
     "& li::marker": {
       // background: "linear-gradient(to right, #7F64E2 0%, #41A6EF  100%)",

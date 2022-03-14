@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   const [posts, setPosts] = useState<any | undefined>();
 
   useEffect(() => {
-    getAllProjects().then((e: any) => {
+    getAllAnnouncement().then((e: any) => {
       setPosts(e);
     });
   }, []);

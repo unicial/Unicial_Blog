@@ -1,19 +1,25 @@
 .c-articleCardContainer:hover .c-articleCard-imgContainer {
-  background-color: #7f64e2;
-  opacity: 70%;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+  opacity: 9%;
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
+  height: 100%;
+  object-fit: cover;
 }
 .c-articleCardContainer {
+  position: relative;
   cursor: pointer;
   margin-bottom: 20px;
-  border-radius: 18px;
+  border-radius: 13px;
+  height: 100% !important;
+  min-height: 450px;
 }
 .c-articleCardContainer:hover {
-  background-image: url("/images/article_bg2.png"),
-    linear-gradient(to right, #6db3f2, #6db3f2);
-  background-size: cover contain;
+  background-image: linear-gradient(to bottom, #7f64e2 0%, #41a6ef 100%);
   transition-duration: 0.5s;
+}
+.c-articleCardContainer:hover .textclass {
+  position: absolute;
+  bottom: -50px;
 }
 .c-articleCardContainer:hover .c-articleCard-readMore-tag {
   background-color: white;
@@ -28,20 +34,19 @@
 .c-articleCardContainer:hover .c-articleCard-dateContainer {
   display: none;
 }
-.c-articleCardContainer:hover .c-articleCard-img {
+/* .c-articleCardContainer:hover .c-articleCard-img {
   display: none;
-  /* src: url("/id"); */
-}
+} */
 .c-articleCard-imgContainer {
   width: 100%;
   height: 250px;
   border-radius: 13px;
 }
-.c-articleCard-img {
+/* .c-articleCard-img {
   width: 100%;
   height: 100%;
-  border-radius: 15px;
-}
+  border-radius: 13px;
+} */
 .c-articleCard-dateContainer {
   display: flex;
   text-align: start;
@@ -55,10 +60,6 @@
   font-size: 16px;
   line-height: 26px;
   color: #96a1db;
-  /* border-bottom: double 1px transparent;
-  background-clip: content-box, border-box;
-  background-image: linear-gradient(#21263f, #21263f),
-    radial-gradient(circle at top left, #ff7c4c, #ffb03a); */
   border-bottom: 1px solid #ff7c4ce8;
 }
 
@@ -109,10 +110,15 @@
 }
 .textclass {
   padding-top: 19px;
+  height: calc(100% - 250px);
 }
 .c-articleCardContainer:hover .textclass {
-  background-color: #7f64e2;
-  opacity: 70%;
   border-bottom-left-radius: 13px;
   border-bottom-right-radius: 13px;
+}
+.c-articleCard-DownPart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 70px);
 }

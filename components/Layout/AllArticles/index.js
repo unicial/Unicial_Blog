@@ -2,7 +2,7 @@ import { Grid } from "@material-ui/core";
 import LatestArticle from "../../LatestArticle/LatestArticle";
 import ArticleCard from "../../ArticleCard/ArticleCard";
 import CommonBtn from "../../Base/CommonBtn";
-
+import TestCard from '../../TestCard/TestCard'
 export default function AllArticles({ posts }) {
   return (
     <>
@@ -19,6 +19,7 @@ export default function AllArticles({ posts }) {
                   date={post.fields.date}
                   coverImage={post.fields.coverImage.fields.file.url}
                 />
+                {/* <TestCard /> */}
               </Grid>
             ))}
 

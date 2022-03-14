@@ -20,7 +20,6 @@ export default function BlogTable({ rows, columns }: BlogTableProps) {
         <TableCell
           className={clsx("c-blogTable-tableCell", "c-blogTable-tableDateCell")}
         >
-          {/* {row.fields.date} */}
           {moment(row.fields.date).format("MMMM Do , YYYY")}
         </TableCell>
         <TableCell

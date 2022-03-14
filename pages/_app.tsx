@@ -20,6 +20,7 @@ import "../styles/blogDetailBody.css";
 import "../styles/blogDetailFooter.css";
 import "../styles/baseTable.css";
 import "../styles/blogTable.css";
+import "../styles/testCard.scss";
 import type { AppProps } from "next/app";
 import React from "react";
 import { Provider } from "react-redux";

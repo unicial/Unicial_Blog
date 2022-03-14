@@ -14,9 +14,7 @@ export default function ArticleCard({
   return (
     <Link href="/[contentType]/[slug]" as={`/${contentType}/${slug}`}>
       <div className="c-articleCardContainer">
-        <div className="c-articleCard-imgContainer">
-          <img src={coverImage} className="c-articleCard-img" />
-        </div>
+        <img src={coverImage} className="c-articleCard-imgContainer" />
         <div className="textclass">
           <div className="c-articleCard-dateContainer">
             <span className="c-articleCard-dateTitle">DESIGN RESOURCES</span>
@@ -26,15 +24,18 @@ export default function ArticleCard({
               {moment(date).format("MMMM Do , YYYY")}
             </span>
           </div>
-          <div className="c-articleCard-mainContent">
+          <div className="c-articleCard-DownPart">
+            <div className="c-articleCard-mainContent">
 
-            {title}
-          </div>
-          <div className="c-articleCard-readMore-container">
-            <div className="c-articleCard-readMore-tag">
-              <span className="c-articleCard-readMore-span">READ MORE</span>
+              {title}
+            </div>
+            <div className="c-articleCard-readMore-container">
+              <div className="c-articleCard-readMore-tag">
+                <span className="c-articleCard-readMore-span">READ MORE</span>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </Link>
