@@ -9,25 +9,10 @@ interface Props {
 
 const useStyles = makeStyles((theme) => ({
   c_BlogDetailBody_contentRoot: {
-    // display: "flex",
-    // justifyContent: "space-between",
-    // alignItems: "center",
     marginTop: "2rem",
     "& p": {
-      ...theme.typography.body1,
-      color: "white ",
-    },
-    "& h1, h2, h3, h4, h5": {
-      fontSize: "1.5rem",
-      marginBottom: "0",
-      marginTop: "2rem",
-      color: "white",
-    },
-    "& a": {
-      background: "linear-gradient(to right, #ff7c4c 0%, #ffb03a 100%)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      textDecoration: "underline",
+      // ...theme.typography.body1,
+      color: "white !important",
     },
     "& li::marker": {
       // background: "linear-gradient(to right, #7F64E2 0%, #41A6EF  100%)",
@@ -36,6 +21,22 @@ const useStyles = makeStyles((theme) => ({
       color: "white ",
     },
   },
+  c_BlogDetailBody_ulRoot: {
+    "li::before": {
+      // background: "linear-gradient(to right, #7F64E2 0%, #41A6EF  100%)",
+      // WebkitBackgroundClip: "text",
+      // WebkitTextFillColor: "transparent",
+      color: "white",
+      display: "inlineBlock",
+    },
+  },
+  atag: {
+    // background: "linear-gradient(to right, #ff7c4c 0%, #ffb03a 100%)",
+    // WebkitBackgroundClip: "text",
+    // WebkitTextFillColor: "transparent",
+    textDecoration: "underline",
+    color: "white",
+  },
 }));
 
 export default function BlogDetailBody({ content }: Props) {
@@ -43,6 +44,52 @@ export default function BlogDetailBody({ content }: Props) {
 
   const options = {
     renderNode: {
+      [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
+        <>
+          <p style={{ color: "white !important" }}>{children}</p>
+        </>
+      ),
+      [BLOCKS.HEADING_1]: (node: any, children: any) => (
+        <>
+          <h1 style={{ color: "white !important" }}>{children}</h1>
+        </>
+      ),
+      [BLOCKS.HEADING_2]: (node: any, children: any) => (
+        <>
+          <h2 style={{ color: "white !important" }}>{children}</h2>
+        </>
+      ),
+      [BLOCKS.HEADING_3]: (node: any, children: any) => (
+        <>
+          <h3 style={{ color: "white !important" }}>{children}</h3>
+        </>
+      ),
+      [BLOCKS.HEADING_4]: (node: any, children: any) => (
+        <>
+          <h4 style={{ color: "white !important" }}>{children}</h4>
+        </>
+      ),
+      [BLOCKS.HEADING_5]: (node: any, children: any) => (
+        <>
+          <h5 style={{ color: "white !important" }}>{children}</h5>
+        </>
+      ),
+      [BLOCKS.HEADING_6]: (node: any, children: any) => (
+        <>
+          <h6 style={{ color: "white !important" }}>{children}</h6>
+        </>
+      ),
+      [BLOCKS.OL_LIST]: (node: any, children: any) => (
+        <>
+          <ol style={{ color: "white !important" }}>{children}</ol>
+        </>
+      ),
+      [BLOCKS.UL_LIST]: (node: any, children: any) => (
+        <>
+          <ul style={{ color: "white !important" }}>{children}</ul>
+        </>
+      ),
+
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
         const { url, fileName } = node.data.target.fields.file;
         return (
@@ -57,7 +104,18 @@ export default function BlogDetailBody({ content }: Props) {
         const { uri } = node.data;
         const { value } = node.content[0];
         return (
-          <a target="_blank" rel="noreferrer noopener" href={uri}>
+          <a
+            target="_blank"
+            rel="noreferrer noopener"
+            className={classes.atag}
+            style={{
+              background: "linear-gradient(to right, #ff7c4c 0%, #ffb03a 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              textDecoration: "underline !important",
+            }}
+            href={uri}
+          >
             {value}
           </a>
         );

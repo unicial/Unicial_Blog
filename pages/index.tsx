@@ -9,7 +9,7 @@ import NewsLetter from "../components/NewsLetter/NewsLetter";
 import SocialLinkBlock from "../components/SocialLinkBlock/SocialLinkBlock";
 import Footer from "../components/Footer/Footer";
 // import { getAllPosts } from "../lib";
-import { getAllAnnouncement } from "../lib";
+import { getAllArticle } from "../lib";
 import { getAllProjects } from "../lib";
 import { useEffect } from "react";
 
@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   const [posts, setPosts] = useState<any | undefined>();
 
   useEffect(() => {
-    getAllAnnouncement().then((e: any) => {
+    getAllArticle().then((e: any) => {
       setPosts(e);
     });
   }, []);

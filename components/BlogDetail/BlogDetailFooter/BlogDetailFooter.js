@@ -1,10 +1,6 @@
 import { Grid } from "@material-ui/core";
 import ArticleCard from "../../ArticleCard/ArticleCard";
 
-// interface Props {
-//   morePosts?: any;
-// }
-
 export default function BlogDetailFooter({ morePosts }) {
   console.log("morePosts", morePosts);
   return (
@@ -15,6 +11,7 @@ export default function BlogDetailFooter({ morePosts }) {
             {morePosts?.map((morePost) => (
               <Grid item xs={12} sm={6} md={4}>
                 <ArticleCard
+                  contentType={morePost.sys.contentType.sys.id}
                   title={morePost.fields.title}
                   slug={morePost.fields.slug}
                   date={morePost.fields.date}
