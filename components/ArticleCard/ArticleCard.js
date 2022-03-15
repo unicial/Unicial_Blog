@@ -1,6 +1,5 @@
 import Link from "../Link/Link";
 import moment from "moment";
-import { useState } from "react";
 
 export default function ArticleCard({
   contentType,
@@ -9,7 +8,6 @@ export default function ArticleCard({
   date,
   coverImage,
 }) {
-  // const [toptaburl, setToptabUrl] = useState("");
 
   return (
     <Link href="/[contentType]/[slug]" as={`/${contentType}/${slug}`}>

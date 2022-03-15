@@ -8,9 +8,7 @@ import AllAricles from "../components/Layout/AllArticles";
 import NewsLetter from "../components/NewsLetter/NewsLetter";
 import SocialLinkBlock from "../components/SocialLinkBlock/SocialLinkBlock";
 import Footer from "../components/Footer/Footer";
-// import { getAllPosts } from "../lib";
 import { getAllArticle } from "../lib";
-import { getAllProjects } from "../lib";
 import { useEffect } from "react";
 
 const Home: NextPage = () => {

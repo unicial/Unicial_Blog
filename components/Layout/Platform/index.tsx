@@ -15,7 +15,7 @@ export default function Platform() {
   return (
     <>
       <div className="c-announcements-root">
-        <div className="c-announcements-headerContainer">
+        <div className="c-platform-headerContainer">
           <div className="c-announcements-headerBigtitle">Platform</div>
           <div className="c-announcements-headerSmalltitle">
             Explore the philosophy and practice of building virtual experiences

@@ -16,6 +16,59 @@
   justify-content: center;
   align-items: center;
 }
+.c-projectUpdate-headerContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
+  height: 300px;
+  border-radius: 13px;
+  background-image: url("/images/projectUpdate_bg.png");
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.c-platform-headerContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
+  height: 300px;
+  border-radius: 13px;
+  background-image: url("/images/platform_bg.png");
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.c-technology-headerContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
+  height: 300px;
+  border-radius: 13px;
+  background-image: url("/images/technology_bg.png");
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.c-tutorials-headerContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
+  height: 300px;
+  border-radius: 13px;
+  background-image: url("/images/tutorials_bg.png");
+  padding: 30px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .c-announcements-TableContainer {
   width: 100%;
   max-width: 1200px;

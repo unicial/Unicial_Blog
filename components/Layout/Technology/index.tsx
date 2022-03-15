@@ -14,7 +14,7 @@ export default function Technology() {
   return (
     <>
       <div className="c-announcements-root">
-        <div className="c-announcements-headerContainer">
+        <div className="c-technology-headerContainer">
           <div className="c-announcements-headerBigtitle">Technology</div>
           <div className="c-announcements-headerSmalltitle">
             Read about the technology behind our platform.

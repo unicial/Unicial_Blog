@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Link from "../Link/Link";
 import { Box } from "@material-ui/core";
 import { Popover, MenuItem } from "@material-ui/core";
 import clsx from "clsx";
@@ -52,14 +53,15 @@ export default function AuthorsMenuBar() {
 
   const handleItem = (index: number) => {
     alert(index);
-    console.log(uniqueAuthors[index]?.fields.author.fields.authorId);
-
-    let selItemName =
-      uniqueAuthors[index]?.fields.author.fields.authorId !== undefined
-        ? uniqueAuthors[index]?.fields.author.fields.authorId
-        : null;
-    setitemName(selItemName);
-    handleClose();
+    // console.log(uniqueAuthors[index]?.fields.author.fields.authorId);
+    if (uniqueAuthors) {
+      let selItemName =
+        uniqueAuthors[index]?.fields.author.fields.authorId !== undefined
+          ? uniqueAuthors[index]?.fields.author.fields.authorId
+          : null;
+      setitemName(selItemName);
+      handleClose();
+    }
   };
 
   return (
@@ -103,6 +105,7 @@ export default function AuthorsMenuBar() {
             key={index}
             className="c-author-menuItem"
           >
+            {/* <Link href="/author/[slug]" as={`/author/${slug}`}> */}
             <Box className="c-author-listContainer">
               <img
                 src={item.fields.author.fields.image.fields.file.url}
@@ -116,6 +119,7 @@ export default function AuthorsMenuBar() {
                 {item.fields.author.fields.name}
               </Box>
             </Box>
+            {/* </Link> */}
           </MenuItem>
         ))}
       </Popover>

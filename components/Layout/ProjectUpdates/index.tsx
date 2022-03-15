@@ -15,7 +15,7 @@ export default function ProjectUpdates() {
   return (
     <>
       <div className="c-announcements-root">
-        <div className="c-announcements-headerContainer">
+        <div className="c-projectUpdate-headerContainer">
           <div className="c-announcements-headerBigtitle">Project Updates</div>
           <div className="c-announcements-headerSmalltitle">
             Releases, developements, and updates.

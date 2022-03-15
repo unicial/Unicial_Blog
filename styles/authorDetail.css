@@ -1,0 +1,65 @@
+.c-author-root {
+  min-height: 500px;
+  background-color: #21263f;
+}
+/* // */
+.c-authorDetailsRoot {
+  width: 100%;
+  background-color: #21263f;
+  padding: 59px 0px;
+}
+.c-authorInfo-root {
+  width: 100%;
+  margin: 0px auto 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #282e4e;
+  padding: 0px 30px 57px 30px;
+}
+.c-authorInfo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.c-authorInfo-avatarContainer {
+  width: 128px;
+  height: 128px;
+  border-radius: 100%;
+  margin-bottom: 25px;
+  text-align: center;
+}
+.c-authorInfo-authorName {
+  font-family: Montserrat;
+  font-size: 27px;
+  line-height: 37px;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 11px;
+}
+.c-authorInfo-authorDescription {
+  font-family: Lato;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #bbc4f3;
+  text-align: center;
+}
+.c-authorDetail-photoesContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0px auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.c-authorDetail-loadMoreBtnRoot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 19px auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
