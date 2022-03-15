@@ -3,7 +3,8 @@ import Header from "../../components/Header/Header";
 import TopTab from "../../components/TopTab/TopTab";
 import Footer from "../../components/Footer/Footer";
 
-import { getAuthorBySlug, getAllAuthorWithSlug } from "../../lib";
+import { getAuthorBySlug, getAllAuthorWithSlug, getAllAuthorArticle } from "../../lib";
+import { useEffect, useState } from "react";
 
 export async function getStaticPaths() {
     const allAuthors = await getAllAuthorWithSlug();
@@ -25,12 +26,23 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Author({ authorDetail }) {
-    console.log("author_Detail##", authorDetail)
+    // console.log("author_Detail##", authorDetail);
+    const [allAuthorsArticle, setAllAuthorsArticle] = useState();
+
+    useEffect(() => {
+        getAllAuthorArticle(authorDetail.fields.name).then((e) => {
+            if (e?.length > 0) {
+                setAllAuthorsArticle(e);
+            }
+        });
+        // console.log()
+    }, []);
+
     return (
         <>
             <Header />
             <TopTab />
-            <AuthorDetail authorDetail={authorDetail} />
+            <AuthorDetail authorDetail={authorDetail} allAuthorsArticle={allAuthorsArticle} />
             <Footer />
         </>
     )
