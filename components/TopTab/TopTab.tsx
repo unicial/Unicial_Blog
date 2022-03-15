@@ -55,6 +55,9 @@ export default function TopTab() {
     if (router.asPath.includes("tutorials")) {
       setToptabActive(toptabLinkData.tutorials);
     }
+    if (router.asPath.includes("author")) {
+      setToptabActive(0);
+    }
   }, [toptabActive]);
 
   return (

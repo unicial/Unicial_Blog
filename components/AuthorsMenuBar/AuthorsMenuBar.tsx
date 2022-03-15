@@ -26,7 +26,7 @@ export default function AuthorsMenuBar() {
         for (var i = 0; i < allAuthorsLength; i++) {
           uniqueAllAuthorsSet.add(e[i]?.fields.author.fields.authorId);
         }
-        console.log("uniqueAllAuthorsSet.size", uniqueAllAuthorsSet.size);
+        // console.log("uniqueAllAuthorsSet.size", uniqueAllAuthorsSet.size);
         for (var i = allAuthorsLength - 1; i >= 0; i--) {
           if (uniqueAllAuthorsSet.size === 0) break;
           if (uniqueAllAuthorsSet.has(e[i]?.fields.author.fields.authorId)) {
@@ -35,13 +35,13 @@ export default function AuthorsMenuBar() {
           uniqueAllAuthorsSet.delete(e[i].fields.author.fields.authorId);
         }
         setUniqueAuthors(uniqueAllAuthors);
-        console.log("uniqueallauthorsData", uniqueAllAuthors);
+        // console.log("uniqueallauthorsData", uniqueAllAuthors);
       }
-      console.log("no data");
+      // console.log("no data");
     });
   }, []);
 
-  console.log("allAuthors", allAuthors);
+  // console.log("allAuthors", allAuthors);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const handleOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -52,7 +52,6 @@ export default function AuthorsMenuBar() {
   };
 
   const handleItem = (index: number) => {
-    alert(index);
     // console.log(uniqueAuthors[index]?.fields.author.fields.authorId);
     if (uniqueAuthors) {
       let selItemName =
@@ -105,21 +104,24 @@ export default function AuthorsMenuBar() {
             key={index}
             className="c-author-menuItem"
           >
-            {/* <Link href="/author/[slug]" as={`/author/${slug}`}> */}
-            <Box className="c-author-listContainer">
-              <img
-                src={item.fields.author.fields.image.fields.file.url}
-                className="c-author-imgContainer"
-              />
-              <Box
-                className={clsx("c-author-listLabel", {
-                  ["c-author-activeListLabel"]: itemName === item.name,
-                })}
-              >
-                {item.fields.author.fields.name}
+            <Link
+              href="/author/[slug]"
+              as={`/author/${item.fields.author.fields.slug}`}
+            >
+              <Box className="c-author-listContainer">
+                <img
+                  src={item.fields.author.fields.image.fields.file.url}
+                  className="c-author-imgContainer"
+                />
+                <Box
+                  className={clsx("c-author-listLabel", {
+                    ["c-author-activeListLabel"]: itemName === item.name,
+                  })}
+                >
+                  {item.fields.author.fields.name}
+                </Box>
               </Box>
-            </Box>
-            {/* </Link> */}
+            </Link>
           </MenuItem>
         ))}
       </Popover>
