@@ -15,7 +15,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    console.log("test")
     const authorDetail = await getAuthorBySlug(params.slug);
     return {
         props: {
@@ -26,7 +25,6 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Author({ authorDetail }) {
-    // console.log("author_Detail##", authorDetail);
     const [allAuthorsArticle, setAllAuthorsArticle] = useState();
 
     useEffect(() => {
@@ -35,7 +33,6 @@ export default function Author({ authorDetail }) {
                 setAllAuthorsArticle(e);
             }
         });
-        // console.log()
     }, []);
 
     return (

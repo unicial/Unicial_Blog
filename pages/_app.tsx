@@ -23,12 +23,16 @@ import "../styles/blogTable.css";
 import "../styles/testCard.scss";
 import "../styles/authorDetail.css";
 import type { AppProps } from "next/app";
+import App from "next/app";
 import React from "react";
 import { Provider } from "react-redux";
 import { ThemeProvider, useTheme } from "@material-ui/core/styles";
+import { store } from "../store/store";
+import { getAllArticle } from "../lib";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp(props: any) {
   // return <Component {...pageProps} />
+  const { Component, pageProps, res } = props;
   const theme = useTheme();
   React.useEffect(() => {
     // Remove the server-side injected CSS.
@@ -37,11 +41,21 @@ function MyApp({ Component, pageProps }: AppProps) {
       jssStyles.parentElement!.removeChild(jssStyles);
     }
   }, []);
+  // console.log("res", res);
   return (
-    <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <Component res={res} {...pageProps} />
+      </ThemeProvider>
+    </Provider>
   );
 }
+MyApp.getInitialProps = async (ctx: any) => {
+  // const res = await fetch("https://api.github.com/repos/vercel/next.js");
+  // const json = await res.json();
+  // return { res: json.message };
+  const res = await getAllArticle();
+  return { res: res };
+};
 
 export default MyApp;

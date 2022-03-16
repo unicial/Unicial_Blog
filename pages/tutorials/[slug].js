@@ -23,7 +23,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    console.log("params", params);
     const tutorialDetail = await getTutorialsBySlug(params.slug);
     const moreTutorials = await getMoreTutorials(params.slug);
     return {
@@ -43,6 +42,7 @@ export default function ProjectDetail({ tutorialDetail, moreTutorials }) {
             <TopTab />
             <div className="c-blogDetail-root">
                 <BlogDetailHeader
+                    contentType="TUTORIAL"
                     title={tutorialDetail?.fields.title}
                     slug={tutorialDetail?.fields.slug}
                     description={tutorialDetail?.fields.description}

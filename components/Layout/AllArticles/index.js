@@ -3,7 +3,14 @@ import { Grid } from "@material-ui/core";
 import LatestArticle from "../../LatestArticle/LatestArticle";
 import ArticleCard from "../../ArticleCard/ArticleCard";
 import CommonBtn from "../../Base/CommonBtn";
-export default function AllArticles({ posts }) {
+import { selectAllArticle } from "../../../store/AllArticles/selectors";
+
+import { useAppSelector } from "../../../store/hooks";
+
+
+export default function AllArticles() {
+
+  const allArticle = useAppSelector(selectAllArticle);
   const [showMoreCount, setShowMoreCount] = useState(3);
   const handleLoadMore = () => {
     setShowMoreCount(showMoreCount + 3)
@@ -14,14 +21,14 @@ export default function AllArticles({ posts }) {
         <LatestArticle />
         <div className="c-allArticles-photoesContainer">
           <Grid container spacing={4}>
-            {posts?.slice(0, showMoreCount)?.map((post) => (
+            {allArticle?.allArticle?.slice(0, showMoreCount)?.map((article) => (
               <Grid item xs={12} sm={6} md={4}>
                 <ArticleCard
-                  contentType={post.sys.contentType.sys.id}
-                  title={post.fields.title}
-                  slug={post.fields.slug}
-                  date={post.fields.date}
-                  coverImage={post.fields.coverImage.fields.file.url}
+                  contentType={article.sys.contentType.sys.id}
+                  title={article.fields.title}
+                  slug={article.fields.slug}
+                  date={article.fields.date}
+                  coverImage={article.fields.coverImage.fields.file.url}
                 />
               </Grid>
             ))}

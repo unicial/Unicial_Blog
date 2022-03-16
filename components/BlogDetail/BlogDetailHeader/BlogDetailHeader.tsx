@@ -1,6 +1,7 @@
 import moment from "moment";
 
 interface Props {
+  contentType: string;
   title: string;
   slug: string;
   description: string;
@@ -8,6 +9,7 @@ interface Props {
   coverImage: any;
 }
 export default function BlogDetailHeader({
+  contentType,
   title,
   slug,
   description,
@@ -21,7 +23,7 @@ export default function BlogDetailHeader({
         <div className="c-blogDetailHeader-mainContentContainer">
           {/* ----copy part start from articleCard---- */}
           <div className="c-articleCard-dateContainer">
-            <span className="c-articleCard-dateTitle">ANNOUNCEMENTS</span>
+            <span className="c-articleCard-dateTitle">{contentType}</span>
             <span className="c-articleCard-comma"></span>
 
             <span className="c-articleCard-dateLabel">

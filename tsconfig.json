@@ -20,7 +20,8 @@
     "**/*.ts",
     "**/*.tsx",
     "components/Link/Link.js",
-    "components/ArticleCard/ArticleCard.js"
+    "components/ArticleCard/ArticleCard.js",
+    "pages/announcement/index.js"
   ],
   "exclude": ["node_modules"]
 }

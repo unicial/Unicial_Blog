@@ -10,7 +10,6 @@ export default function LatestArticle() {
     getLatestAnnouncement().then((e: any) => {
       setLatestPost(e);
     });
-    console.log("latestpost##", latestPost);
   }, []);
 
   return (

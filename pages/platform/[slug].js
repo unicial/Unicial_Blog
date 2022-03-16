@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    console.log("params", params);
+    // console.log("params", params);
     const platformDetail = await getPlatformBySlug(params.slug);
     const morePlatforms = await getMorePlatform(params.slug);
     return {
@@ -38,13 +38,13 @@ export async function getStaticProps({ params }) {
 
 export default function PlatformDetail({ platformDetail, morePlatforms }) {
 
-    console.log("project detail", platformDetail);
     return (
         <>
             <Header />
             <TopTab />
             <div className="c-blogDetail-root">
                 <BlogDetailHeader
+                    contentType="PLATFORM"
                     title={platformDetail?.fields.title}
                     slug={platformDetail?.fields.slug}
                     description={platformDetail?.fields.description}

@@ -4,7 +4,6 @@ import CommonBtn from "../../Base/CommonBtn";
 import { useState } from "react";
 
 export default function AuthorDetail({ authorDetail, allAuthorsArticle }) {
-    // console.log("author_detail", authorDetail.name);
     const [showMoreCount, setShowMoreCount] = useState(3);
     const handleLoadMore = () => {
         setShowMoreCount(showMoreCount + 3)

@@ -14,6 +14,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.3.0",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@reduxjs/toolkit": "^1.8.0",
     "clsx": "^1.1.1",
     "contentful": "^9.1.12",
     "contentful-import": "^8.2.28",

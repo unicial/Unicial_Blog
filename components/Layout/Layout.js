@@ -16,12 +16,6 @@ const Layout = ({ children, title, description }) => {
                     content={title ? title : "Blog"}
                     key="og:title"
                 />
-                {/* <meta property="og:url" content={url ? url : pageUrl} key="og:url" /> */}
-                {/* <meta
-                    property="og:image"
-                    content={ogImage ? ogImage : ogImg}
-                    key="og:image"
-                /> */}
                 <meta
                     property="og:description"
                     content={

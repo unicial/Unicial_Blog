@@ -17,25 +17,38 @@ export default function TopTab() {
 
     switch (index) {
       case toptabLinkData.allArticles:
-        window.location.href = "/";
+        // window.location.href = "/";
+        router.push("/");
+
         break;
       case toptabLinkData.announcements:
-        window.location.href = "/announcement";
+        // window.location.href = "/announcement";
+        router.push("/announcement");
         break;
       case toptabLinkData.projectUpdates:
-        window.location.href = "/projectUpdates";
+        // window.location.href = "/projectUpdates";
+        router.push("/projectUpdates");
+
         break;
       case toptabLinkData.platform:
-        window.location.href = "/platform";
+        // window.location.href = "/platform";
+        router.push("/platform");
+
         break;
       case toptabLinkData.technology:
-        window.location.href = "/technology";
+        // window.location.href = "/technology";
+        router.push("/technology");
+
         break;
       case toptabLinkData.tutorials:
-        window.location.href = "/tutorials";
+        // window.location.href = "/tutorials";
+        router.push("/tutorials");
+
         break;
       default:
-        window.location.href = "/";
+        // window.location.href = "/";
+        router.push("/");
+
         break;
     }
   };

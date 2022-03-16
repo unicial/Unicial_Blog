@@ -1,17 +1,8 @@
 import BlogTable from "../../BlogTable/BlogTable";
-import { useState, useEffect } from "react";
-import { getAllProjects } from "../../../lib";
+import { useAppSelector } from "../../../store/hooks";
+import { selectProjectUpdate } from "../../../store/ProjectUpdate/selectors";
 
 export default function ProjectUpdates() {
-  const [projects, setProjects] = useState<any | undefined>();
-
-  useEffect(() => {
-    console.log("project_update test");
-    getAllProjects().then((e: any) => {
-      setProjects(e);
-    });
-  }, []);
-
   return (
     <>
       <div className="c-announcements-root">
@@ -22,7 +13,7 @@ export default function ProjectUpdates() {
           </div>
         </div>
         <div className="c-announcements-TableContainer">
-          <BlogTable rows={projects} />
+          <BlogTable rows={useAppSelector(selectProjectUpdate).projectUpdate} />
         </div>
       </div>
     </>

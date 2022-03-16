@@ -1,17 +1,8 @@
 import BlogTable from "../../BlogTable/BlogTable";
-import { announcementTableData } from "../../../config/constant";
-import { useState, useEffect } from "react";
-import { getAllAnnouncement } from "../../../lib";
-
+import { useAppSelector } from "../../../store/hooks";
+import { selectAnnouncement } from "../../../store/Announcement/selectors";
+import React from "react";
 export default function Announcements() {
-  const [posts, setPosts] = useState<any | undefined>();
-
-  useEffect(() => {
-    getAllAnnouncement().then((e: any) => {
-      setPosts(e);
-    });
-  }, []);
-
   return (
     <>
       <div className="c-announcements-root">
@@ -22,7 +13,7 @@ export default function Announcements() {
           </div>
         </div>
         <div className="c-announcements-TableContainer">
-          <BlogTable rows={posts} />
+          <BlogTable rows={useAppSelector(selectAnnouncement).announcement} />
         </div>
       </div>
     </>

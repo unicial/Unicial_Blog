@@ -10,7 +10,6 @@ interface BlogTableProps {
 }
 
 export default function BlogTable({ rows, columns }: BlogTableProps) {
-  console.log("blogtable", rows);
   const tableRows = rows?.map((row: any, key: any) => (
     <Link
       href="/[contentType]/[slug]"

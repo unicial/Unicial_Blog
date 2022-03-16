@@ -2,7 +2,6 @@ import { Grid } from "@material-ui/core";
 import ArticleCard from "../../ArticleCard/ArticleCard";
 
 export default function BlogDetailFooter({ morePosts }) {
-  console.log("morePosts", morePosts);
   return (
     <>
       <div className="c-blogDetailFooter-root">

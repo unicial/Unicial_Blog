@@ -23,7 +23,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    console.log("params", params);
     const technologyDetail = await getTechnologyBySlug(params.slug);
     const moreTechnology = await getMoreTechnology(params.slug);
     return {
@@ -36,13 +35,13 @@ export async function getStaticProps({ params }) {
 }
 
 export default function TechnologyDetail({ technologyDetail, moreTechnology }) {
-
     return (
         <>
             <Header />
             <TopTab />
             <div className="c-blogDetail-root">
                 <BlogDetailHeader
+                    contentType="TECHNOLOGY"
                     title={technologyDetail?.fields.title}
                     slug={technologyDetail?.fields.slug}
                     description={technologyDetail?.fields.description}

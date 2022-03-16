@@ -1,16 +1,8 @@
 import BlogTable from "../../BlogTable/BlogTable";
-import { useState, useEffect } from "react";
-import { getAllTechnology } from "../../../lib";
+import { useAppSelector } from "../../../store/hooks";
+import { selectTechnology } from "../../../store/Technology/selectors";
 
 export default function Technology() {
-  const [technology, setTechnology] = useState<any | undefined>();
-
-  useEffect(() => {
-    getAllTechnology().then((e: any) => {
-      setTechnology(e);
-    });
-  }, []);
-
   return (
     <>
       <div className="c-announcements-root">
@@ -21,7 +13,7 @@ export default function Technology() {
           </div>
         </div>
         <div className="c-announcements-TableContainer">
-          <BlogTable rows={technology} />
+          <BlogTable rows={useAppSelector(selectTechnology).technology} />
         </div>
       </div>
     </>

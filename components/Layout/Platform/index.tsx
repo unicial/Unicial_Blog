@@ -1,17 +1,8 @@
 import BlogTable from "../../BlogTable/BlogTable";
-import { useState, useEffect } from "react";
-import { getAllPlatform } from "../../../lib";
+import { useAppSelector } from "../../../store/hooks";
+import { selectPlatform } from "../../../store/Platform/selectors";
 
 export default function Platform() {
-  const [platform, setPlatform] = useState<any | undefined>();
-
-  useEffect(() => {
-    console.log("project_update test");
-    getAllPlatform().then((e: any) => {
-      setPlatform(e);
-    });
-  }, []);
-
   return (
     <>
       <div className="c-announcements-root">
@@ -23,7 +14,7 @@ export default function Platform() {
           </div>
         </div>
         <div className="c-announcements-TableContainer">
-          <BlogTable rows={platform} />
+          <BlogTable rows={useAppSelector(selectPlatform).platform} />
         </div>
       </div>
     </>

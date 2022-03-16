@@ -10,18 +10,25 @@ import SocialLinkBlock from "../components/SocialLinkBlock/SocialLinkBlock";
 import Footer from "../components/Footer/Footer";
 import { getAllArticle } from "../lib";
 import { useEffect } from "react";
+import { useAppDispatch } from "../store/hooks";
+import { fetchAllData } from "../store/AllArticles";
+import { fetchAnnouncementData } from "../store/Announcement";
 
 const Home: NextPage = () => {
-  const [posts, setPosts] = useState<any | undefined>();
+  const [allArticle, setAllArticle] = useState<any | undefined>();
+  const [announcement, setAnnouncement] = useState<any | undefined>();
+
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     getAllArticle().then((e: any) => {
-      setPosts(e);
+      setAllArticle(e.all);
+      setAnnouncement(e.announcement);
     });
-  }, []);
-
-  console.log("posts", posts);
-
+    dispatch(fetchAllData(allArticle));
+    dispatch(fetchAnnouncementData(announcement));
+  }, [allArticle?.length, announcement?.length]);
+  // allArticle?.length, announcement?.length;
   return (
     <div className={styles.container}>
       <Head>
@@ -37,7 +44,8 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <TopTab />
-      <AllAricles posts={posts} />
+      <AllAricles />
+
       <NewsLetter />
       <SocialLinkBlock />
       <Footer />

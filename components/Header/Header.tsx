@@ -1,6 +1,6 @@
 import { Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import clsx from "clsx";
 import HeaderSignInBtn from "../HeaderSignInBtn/HeaderSignInBtn";
 import HeaderMobileMenu from "../HeaderMobileMenu/HeaderMobileMenu";

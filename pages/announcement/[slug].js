@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log("params", params);
+  // console.log("params", params);
   const announcementDetail = await getAnnouncementBySlug(params.slug);
   const moreAnnouncements = await getMoreAnnouncement(params.slug);
   return {
@@ -38,13 +38,13 @@ export async function getStaticProps({ params }) {
 
 export default function BlogDetail({ announcementDetail, moreAnnouncements }) {
 
-  console.log("post detail", announcementDetail);
   return (
     <>
       <Header />
       <TopTab />
       <div className="c-blogDetail-root">
         <BlogDetailHeader
+          contentType="ANNOUNCEMENT"
           title={announcementDetail?.fields.title}
           slug={announcementDetail?.fields.slug}
           description={announcementDetail?.fields.description}
