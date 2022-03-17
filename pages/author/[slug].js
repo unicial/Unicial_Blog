@@ -28,7 +28,7 @@ export default function Author({ authorDetail }) {
     const [allAuthorsArticle, setAllAuthorsArticle] = useState();
 
     useEffect(() => {
-        getAllAuthorArticle(authorDetail.fields.name).then((e) => {
+        getAllAuthorArticle(authorDetail?.fields?.name).then((e) => {
             if (e?.length > 0) {
                 setAllAuthorsArticle(e);
             }

@@ -4,10 +4,10 @@ import moment from "moment";
 import Link from "../Link/Link";
 
 export default function LatestArticle() {
-  const [latestPost, setLatestPost] = useState<any | undefined>();
+  const [latestPost, setLatestPost] = useState();
 
   useEffect(() => {
-    getLatestAnnouncement().then((e: any) => {
+    getLatestAnnouncement().then((e) => {
       setLatestPost(e);
     });
   }, []);

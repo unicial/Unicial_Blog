@@ -21,8 +21,8 @@ export default function AllArticles() {
         <LatestArticle />
         <div className="c-allArticles-photoesContainer">
           <Grid container spacing={4}>
-            {allArticle?.allArticle?.slice(0, showMoreCount)?.map((article) => (
-              <Grid item xs={12} sm={6} md={4}>
+            {allArticle?.allArticle?.slice(0, showMoreCount)?.map((article, key) => (
+              <Grid item xs={12} sm={6} md={4} key={key}>
                 <ArticleCard
                   contentType={article.sys.contentType.sys.id}
                   title={article.fields.title}

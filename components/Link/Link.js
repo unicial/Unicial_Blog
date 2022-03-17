@@ -74,6 +74,19 @@ Link.propTypes = {
   prefetch: PropTypes.bool,
 };
 
-export default React.forwardRef((props, ref) => (
-  <Link {...props} innerRef={ref} />
-));
+// export default React.forwardRef((props, ref) => (
+//   <Link {...props} innerRef={ref} />
+// ));
+const LinkCom = React.forwardRef((props, ref) => {
+  return <Link {...props} innerRef={ref} />
+});
+LinkCom.displayName = "LinkCom";
+
+export default LinkCom;
+// const Fancy = React.forwardRef((props, ref) => (
+//   return (<Link {...props} innerRef={ref} />)
+// ));
+
+// const Fancy = React.forwardRef((props, ref) => {
+//   return <Link {...props} innerRef={ref} />
+// });

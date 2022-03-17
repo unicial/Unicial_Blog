@@ -8,27 +8,28 @@ export default function AuthorDetail({ authorDetail, allAuthorsArticle }) {
     const handleLoadMore = () => {
         setShowMoreCount(showMoreCount + 3)
     }
+    // console.log("authorDetail", authorDetail);
 
     return (
         <>
             <div className="c-authorDetailsRoot">
                 <div className="c-authorInfo-root">
                     <div className="c-authorInfo-container">
-                        <img src={authorDetail.fields.image.fields.file.url} className="c-authorInfo-avatarContainer" />
-                        <div className="c-authorInfo-authorName">{authorDetail.fields.name}</div>
-                        <div className="c-authorInfo-authorDescription">{authorDetail.fields.description}</div>
+                        <img src={authorDetail?.fields?.image.fields.file.url} className="c-authorInfo-avatarContainer" />
+                        <div className="c-authorInfo-authorName">{authorDetail?.fields?.name}</div>
+                        <div className="c-authorInfo-authorDescription">{authorDetail?.fields?.description}</div>
                     </div>
                 </div>
                 <div className="c-authorDetail-photoesContainer">
                     <Grid container spacing={4}>
-                        {allAuthorsArticle?.slice(0, showMoreCount).map((authorArticle) => (
-                            <Grid item xs={12} sm={6} md={4}>
+                        {allAuthorsArticle?.slice(0, showMoreCount).map((authorArticle, key) => (
+                            <Grid item xs={12} sm={6} md={4} key={key}>
                                 <ArticleCard
                                     contentType={authorArticle.sys.contentType.sys.id}
-                                    title={authorArticle.fields.title}
-                                    slug={authorArticle.fields.slug}
-                                    date={authorArticle.fields.date}
-                                    coverImage={authorArticle.fields.coverImage.fields.file.url}
+                                    title={authorArticle.fields?.title}
+                                    slug={authorArticle.fields?.slug}
+                                    date={authorArticle.fields?.date}
+                                    coverImage={authorArticle.fields?.coverImage.fields.file.url}
                                 />
                             </Grid>
                         ))}

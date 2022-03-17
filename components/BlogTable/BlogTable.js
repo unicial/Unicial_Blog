@@ -4,18 +4,19 @@ import clsx from "clsx";
 import Link from "../Link/Link";
 import moment from "moment";
 
-interface BlogTableProps {
-  rows?: any;
-  columns?: any;
-}
+// interface BlogTableProps {
+//   rows?: any;
+//   columns?: any;
+// }
 
-export default function BlogTable({ rows, columns }: BlogTableProps) {
-  const tableRows = rows?.map((row: any, key: any) => (
+export default function BlogTable({ rows }) {
+  const tableRows = rows?.map((row, key) => (
     <Link
       href="/[contentType]/[slug]"
       as={`/${row.sys.contentType.sys.id}/${row.fields.slug}`}
+      key={key}
     >
-      <TableRow key={key} className="c-blogTable-tableRow">
+      <TableRow className="c-blogTable-tableRow">
         <TableCell
           className={clsx("c-blogTable-tableCell", "c-blogTable-tableDateCell")}
         >
@@ -49,7 +50,7 @@ export default function BlogTable({ rows, columns }: BlogTableProps) {
   ));
   return (
     <>
-      <BaseTable rows={tableRows} columns={columns} />
+      <BaseTable rows={tableRows} />
     </>
   );
 }

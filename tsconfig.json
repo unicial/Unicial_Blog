@@ -21,6 +21,8 @@
     "**/*.tsx",
     "components/Link/Link.js",
     "components/ArticleCard/ArticleCard.js",
+    "components/AuthorsMenuBar/AuthorsMenuBar.js",
+    "components/LatestArticle/LatestArticle.js",
     "pages/announcement/index.js"
   ],
   "exclude": ["node_modules"]

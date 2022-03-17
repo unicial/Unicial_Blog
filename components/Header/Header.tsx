@@ -5,6 +5,7 @@ import clsx from "clsx";
 import HeaderSignInBtn from "../HeaderSignInBtn/HeaderSignInBtn";
 import HeaderMobileMenu from "../HeaderMobileMenu/HeaderMobileMenu";
 import { headerLinkData } from "../../config/constant";
+import Link from "next/link";
 
 export default function Header() {
   const { t } = useTranslation();
@@ -18,14 +19,18 @@ export default function Header() {
       <div className="c-header-root">
         <div className="c-header-container">
           <div className="c-header-menucontainer">
-            <a href="/" className="c-header-logoContainer ">
-              <img
-                src="/images/logo.svg"
-                alt="logo"
-                className="c-header-logo"
-              />
-              <span className="c-header-logoName">Unicial</span>
-            </a>
+            {/* <div className="c-header-logoContainer "> */}
+            <Link href="/">
+              <a className="c-header-logoContainer ">
+                <img
+                  src="/images/logo.svg"
+                  alt="logo"
+                  className="c-header-logo"
+                />
+                <span className="c-header-logoName">Unicial</span>
+              </a>
+            </Link>
+            {/* </div> */}
             <Button
               className="c-header-nav"
               disableRipple

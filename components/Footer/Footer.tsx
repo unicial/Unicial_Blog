@@ -1,6 +1,6 @@
 import LanguageMenuBar from "../LanguageMenuBar/LanguageMenuBar";
 import { languageData } from "../../config/constant";
-export default function () {
+export default function Footer() {
   return (
     <>
       <div className="c-footer-root">

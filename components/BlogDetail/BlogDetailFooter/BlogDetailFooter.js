@@ -7,8 +7,8 @@ export default function BlogDetailFooter({ morePosts }) {
       <div className="c-blogDetailFooter-root">
         <div className="c-blogDetailFooter-relatedArticleContainer">
           <Grid container spacing={4}>
-            {morePosts?.map((morePost) => (
-              <Grid item xs={12} sm={6} md={4}>
+            {morePosts?.map((morePost, key) => (
+              <Grid item xs={12} sm={6} md={4} key={key}>
                 <ArticleCard
                   contentType={morePost.sys.contentType.sys.id}
                   title={morePost.fields.title}

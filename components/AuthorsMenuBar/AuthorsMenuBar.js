@@ -9,18 +9,18 @@ import { getAllAnnouncement } from "../../lib";
 
 export default function AuthorsMenuBar() {
   const [itemName, setitemName] = React.useState(null);
-  const [allAuthors, setAllAuthors] = useState<any[] | undefined>();
-  const [uniqueAuthors, setUniqueAuthors] = useState<any[] | undefined>();
+  const [allAuthors, setAllAuthors] = useState();
+  const [uniqueAuthors, setUniqueAuthors] = useState();
 
   useEffect(() => {
-    getAllAnnouncement().then((e: any) => {
+    getAllAnnouncement().then((e) => {
       if (e?.length > 0) {
         setAllAuthors(e);
         setitemName(e[0]?.fields.author.fields.name);
 
         //
         let allAuthorsLength = e?.length !== undefined ? e?.length : 0;
-        let uniqueAllAuthors: any[] = [];
+        let uniqueAllAuthors = [];
         let uniqueAllAuthorsSet = new Set();
 
         for (var i = 0; i < allAuthorsLength; i++) {
@@ -43,15 +43,15 @@ export default function AuthorsMenuBar() {
 
   // console.log("allAuthors", allAuthors);
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const handleOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
 
-  const handleItem = (index: number) => {
+  const handleItem = (index) => {
     // console.log(uniqueAuthors[index]?.fields.author.fields.authorId);
     if (uniqueAuthors) {
       let selItemName =
@@ -98,7 +98,7 @@ export default function AuthorsMenuBar() {
         className="c-author-popover"
         style={{ top: "18px" }}
       >
-        {uniqueAuthors?.map((item: any, index: any) => (
+        {uniqueAuthors?.map((item, index) => (
           <MenuItem
             onClick={() => handleItem(index)}
             key={index}

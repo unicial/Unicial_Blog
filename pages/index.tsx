@@ -15,8 +15,8 @@ import { fetchAllData } from "../store/AllArticles";
 import { fetchAnnouncementData } from "../store/Announcement";
 
 const Home: NextPage = () => {
-  const [allArticle, setAllArticle] = useState<any | undefined>();
-  const [announcement, setAnnouncement] = useState<any | undefined>();
+  const [allArticle, setAllArticle] = useState<any | null>();
+  const [announcement, setAnnouncement] = useState<any | null>();
 
   const dispatch = useAppDispatch();
 
