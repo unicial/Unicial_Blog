@@ -25,7 +25,7 @@ export default function SocialLinkCard({ kind, onClick }: Props) {
             ? "Follow us on "
             : kind === "telegram"
             ? "Join us on "
-            : "Join us our "}
+            : "Join us on"}
           &nbsp;
           <span className="c-socialLinkCard-boldLetter">
             {kind === "discord"
@@ -34,7 +34,7 @@ export default function SocialLinkCard({ kind, onClick }: Props) {
               ? "Twitter"
               : kind === "telegram"
               ? "Telegram "
-              : "SDK "}
+              : "facebook"}
           </span>
         </div>
       </div>

@@ -42,7 +42,6 @@ function MyApp(props: any) {
       jssStyles.parentElement!.removeChild(jssStyles);
     }
   }, []);
-  // console.log("res", res);
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
@@ -52,11 +51,8 @@ function MyApp(props: any) {
   );
 }
 MyApp.getInitialProps = async (ctx: any) => {
-  // const res = await fetch("https://api.github.com/repos/vercel/next.js");
-  // const json = await res.json();
-  // return { res: json.message };
   const res = await getAllArticle();
-  console.log("Initial response in app.tsx", res);
+  // console.log("Initial response in app.tsx", res);
   return { res: res };
 };
 

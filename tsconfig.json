@@ -23,7 +23,8 @@
     "components/ArticleCard/ArticleCard.js",
     "components/AuthorsMenuBar/AuthorsMenuBar.js",
     "components/LatestArticle/LatestArticle.js",
-    "pages/announcement/index.js"
+    "pages/announcement/index.js",
+    "components/SearchBar/SearchBar.js"
   ],
   "exclude": ["node_modules"]
 }

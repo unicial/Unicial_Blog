@@ -13,11 +13,11 @@ export default function SearchBar() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [noResult, setNoResult] = React.useState(false);
 
-  console.log("allArticles", allArticle);
+  // console.log("allArticles", allArticle);
 
-  const allData: any = [];
-  const [resultData, setResultData] = React.useState<any>();
-  allArticle?.allArticle?.map((data: any) => {
+  const allData = [];
+  const [resultData, setResultData] = React.useState();
+  allArticle?.allArticle?.map((data) => {
     allData.push({
       title: data.fields.title,
       desc: data.fields.description,
@@ -27,10 +27,8 @@ export default function SearchBar() {
     });
   });
 
-  console.log("allData", allData);
-
   //handle search input
-  const handleSearch = (e: any) => {
+  const handleSearch = (e) => {
     setKeyword(e.target.value);
   };
 
@@ -38,7 +36,7 @@ export default function SearchBar() {
     setKeyword("");
   };
 
-  let temp: any = [];
+  let temp = [];
   useEffect(() => {
     if (keyword === "") {
       setIsOpen(false);
@@ -97,12 +95,13 @@ export default function SearchBar() {
           ["displayNone"]: isOpen === false,
         })}
       >
-        {resultData?.map((item: any, index: any) => (
+        {resultData?.map((item, index) => (
           <Link
             href="/[contentType]/[slug]"
             as={`/${item.contentType}/${item.slug}`}
+            key={index}
           >
-            <div className="c-searchBar-listContainer" key={index}>
+            <div className="c-searchBar-listContainer">
               <div className="c-searchBar-ImageContainer">
                 <img src={item.imgUrl} className="c-searchBar-Image" />
               </div>
@@ -131,7 +130,7 @@ export default function SearchBar() {
             <i className="fas fa-search c-searchBar-noResultSearchIcon"></i>
           </div>
           <div className="c-searchBar-noResultDescription1">
-            Sorry, we couldn't find any matches
+            Sorry, we could not find any matches
           </div>
           <div className="c-searchBar-noResultDescription2">
             Try searching for a different keyword
