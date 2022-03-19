@@ -1,8 +1,3 @@
-import { useRouter } from "next/router";
-import ErrorPage from "next/error";
-// import Layout
-// ---------
-import { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import TopTab from "../../components/TopTab/TopTab";
 import NewsLetter from "../../components/NewsLetter/NewsLetter";
@@ -14,6 +9,10 @@ import BlogDetailBody from "../../components/BlogDetail/BlogDetailBody/BlogDetai
 import BlogDetailFooter from "../../components/BlogDetail/BlogDetailFooter/BlogDetailFooter";
 
 import { getAnnouncementBySlug, getMoreAnnouncement, getAllAnnouncementWithSlug } from "../../lib";
+import { getAllArticle } from "../../lib";
+
+import { useAppDispatch } from "../../store/hooks";
+import { fetchAllData } from "../../store/AllArticles";
 
 export async function getStaticPaths() {
   const allAnnouncements = await getAllAnnouncementWithSlug();
@@ -24,20 +23,36 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  // console.log("params", params);
-  const announcementDetail = await getAnnouncementBySlug(params.slug);
-  const moreAnnouncements = await getMoreAnnouncement(params.slug);
+  console.log("params", params);
+  let promises = [], entrieRes = [];
+  let ResannouncementDetail = [], ResmoreAnnouncements = [], ResallArticle = [];
+
+  const announcementDetail = getAnnouncementBySlug(params.slug);
+  const moreAnnouncements = getMoreAnnouncement(params.slug);
+  const allArticle = getAllArticle();
+  promises.push(announcementDetail, moreAnnouncements, allArticle);
+  entrieRes = await Promise.all(promises);
+
+  ResannouncementDetail = entrieRes[0];
+  ResmoreAnnouncements = entrieRes[1];
+  ResallArticle = entrieRes[2];
+
   return {
     props: {
-      announcementDetail: announcementDetail ? announcementDetail : null,
-      moreAnnouncements: moreAnnouncements ? moreAnnouncements : null,
+      ResannouncementDetail: ResannouncementDetail ? ResannouncementDetail : null,
+      ResmoreAnnouncements: ResmoreAnnouncements ? ResmoreAnnouncements : null,
+      ResallArticle: ResallArticle ? ResallArticle : null,
     },
     revalidate: 1,
   };
 }
 
-export default function BlogDetail({ announcementDetail, moreAnnouncements }) {
+export default function BlogDetail({ ResannouncementDetail, ResmoreAnnouncements, ResallArticle, }) {
+  console.log("slug_allarticle", ResallArticle);
 
+  const dispatch = useAppDispatch();
+
+  dispatch(fetchAllData(ResallArticle?.all));
   return (
     <>
       <Header />
@@ -45,14 +60,14 @@ export default function BlogDetail({ announcementDetail, moreAnnouncements }) {
       <div className="c-blogDetail-root">
         <BlogDetailHeader
           contentType="ANNOUNCEMENT"
-          title={announcementDetail?.fields.title}
-          slug={announcementDetail?.fields.slug}
-          description={announcementDetail?.fields.description}
-          date={announcementDetail?.fields.date}
-          coverImage={announcementDetail?.fields.coverImage.fields.file.url}
+          title={ResannouncementDetail?.fields.title}
+          slug={ResannouncementDetail?.fields.slug}
+          description={ResannouncementDetail?.fields.description}
+          date={ResannouncementDetail?.fields.date}
+          coverImage={ResannouncementDetail?.fields.coverImage.fields.file.url}
         />
-        <BlogDetailBody content={announcementDetail?.fields.content} />
-        <BlogDetailFooter morePosts={moreAnnouncements} />
+        <BlogDetailBody content={ResannouncementDetail?.fields.content} />
+        <BlogDetailFooter morePosts={ResmoreAnnouncements} />
       </div>
       <NewsLetter />
       <SocialLinkBlock />

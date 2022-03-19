@@ -13,6 +13,9 @@ import {
     getMoreTechnology,
     getAllTechnologyWithSlug
 } from "../../lib";
+import { getAllArticle } from "../../lib";
+import { useAppDispatch } from "../../store/hooks";
+import { fetchAllData } from "../../store/AllArticles";
 
 export async function getStaticPaths() {
     const allTechnology = await getAllTechnologyWithSlug();
@@ -23,18 +26,33 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const technologyDetail = await getTechnologyBySlug(params.slug);
-    const moreTechnology = await getMoreTechnology(params.slug);
+    let promises = [], entrieRes = [];
+    let RestechnologyDetail = [], ResmoreTechnology = [], ResallArticle = [];
+
+    const technologyDetail = getTechnologyBySlug(params.slug);
+    const moreTechnology = getMoreTechnology(params.slug);
+    const allArticle = getAllArticle();
+
+    promises.push(technologyDetail, moreTechnology, allArticle);
+    entrieRes = await Promise.all(promises);
+    RestechnologyDetail = entrieRes[0];
+    ResmoreTechnology = entrieRes[1];
+    ResallArticle = entrieRes[2];
+
     return {
         props: {
-            technologyDetail: technologyDetail ? technologyDetail : null,
-            moreTechnology: moreTechnology ? moreTechnology : null,
+            RestechnologyDetail: RestechnologyDetail ? RestechnologyDetail : null,
+            ResmoreTechnology: ResmoreTechnology ? ResmoreTechnology : null,
+            ResallArticle: ResallArticle ? ResallArticle : null,
         },
         revalidate: 1,
     };
 }
 
-export default function TechnologyDetail({ technologyDetail, moreTechnology }) {
+export default function TechnologyDetail({ RestechnologyDetail, ResmoreTechnology, ResallArticle }) {
+
+    const dispatch = useAppDispatch();
+    dispatch(fetchAllData(ResallArticle?.all));
     return (
         <>
             <Header />
@@ -42,14 +60,14 @@ export default function TechnologyDetail({ technologyDetail, moreTechnology }) {
             <div className="c-blogDetail-root">
                 <BlogDetailHeader
                     contentType="TECHNOLOGY"
-                    title={technologyDetail?.fields.title}
-                    slug={technologyDetail?.fields.slug}
-                    description={technologyDetail?.fields.description}
-                    date={technologyDetail?.fields.date}
-                    coverImage={technologyDetail?.fields.coverImage.fields.file.url}
+                    title={RestechnologyDetail?.fields.title}
+                    slug={RestechnologyDetail?.fields.slug}
+                    description={RestechnologyDetail?.fields.description}
+                    date={RestechnologyDetail?.fields.date}
+                    coverImage={RestechnologyDetail?.fields.coverImage.fields.file.url}
                 />
-                <BlogDetailBody content={technologyDetail?.fields.content} />
-                <BlogDetailFooter morePosts={moreTechnology} />
+                <BlogDetailBody content={RestechnologyDetail?.fields.content} />
+                <BlogDetailFooter morePosts={ResmoreTechnology} />
             </div>
             <NewsLetter />
             <SocialLinkBlock />

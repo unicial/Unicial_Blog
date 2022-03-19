@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Unicial Blog](https://blog.unicial.org/) project created by: -[Next.js](https://nextjs.org/) -[Contentful](https://www.contentful.com/) -[Material-UI](https://v4.mui.com/)
 
 ## Getting Started
 
@@ -18,17 +18,34 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+## Project configration
 
-To learn more about Next.js, take a look at the following resources:
+There are two main part in this project.
+-Main Page
+router: /pages
+-Contentful API functions
+router: /lib/index.js
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    There are several functions to get article data from
+    [Contentful](https://www.contentful.com/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## What we use 🔷
 
-## Deploy on Vercel
+1. [Next.js](https://nextjs.org/)
+   We use Next.js to build user interfaces in this web application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. [Contentful](https://www.contentful.com/)
+   Contentful is a Headless CMS. It is so popular and it makes application super fast and it is flexible.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. [Material-UI](https://v4.mui.com/)
+   We use Material-UI to design this blog app. Material-UI is a popular and powerful component based UI React framework.
+
+## How to post article to [Unicial Blog](https://blog.unicial.org/) using [Contentful](https://www.contentful.com/)?
+
+Step1 　 Creating Contentful Account
+Please make a [Contentful Account](https://www.contentful.com/sign-up/) . You can use GitHub account, Google account, email address.
+
+Step2 　 Creating Contentful Content
+After you sign up, please make a new space.
+
+Step3 After login, you can create and post your article to unicial.

@@ -22,6 +22,7 @@ import "../styles/baseTable.css";
 import "../styles/blogTable.css";
 import "../styles/testCard.scss";
 import "../styles/authorDetail.css";
+import "../styles/searchBar.css";
 import type { AppProps } from "next/app";
 import App from "next/app";
 import React from "react";
@@ -55,6 +56,7 @@ MyApp.getInitialProps = async (ctx: any) => {
   // const json = await res.json();
   // return { res: json.message };
   const res = await getAllArticle();
+  console.log("Initial response in app.tsx", res);
   return { res: res };
 };
 

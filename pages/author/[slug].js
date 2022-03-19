@@ -33,7 +33,7 @@ export default function Author({ authorDetail }) {
                 setAllAuthorsArticle(e);
             }
         });
-    }, []);
+    }, [authorDetail?.fields?.name]);
 
     return (
         <>

@@ -13,6 +13,9 @@ import {
     getMoreTutorials,
     getAllTutorialWithSlug
 } from "../../lib";
+import { getAllArticle } from "../../lib";
+import { useAppDispatch } from "../../store/hooks";
+import { fetchAllData } from "../../store/AllArticles";
 
 export async function getStaticPaths() {
     const allTutorials = await getAllTutorialWithSlug();
@@ -23,18 +26,32 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const tutorialDetail = await getTutorialsBySlug(params.slug);
-    const moreTutorials = await getMoreTutorials(params.slug);
+    let promises = [], entrieRes = [];
+    let RestutorialDetail = [], Resmoretutorial = [], ResallArticle = [];
+
+    const tutorialDetail = getTutorialsBySlug(params.slug);
+    const moreTutorials = getMoreTutorials(params.slug);
+    const allArticle = getAllArticle();
+
+    promises.push(tutorialDetail, moreTutorials, allArticle);
+    entrieRes = await Promise.all(promises);
+    RestutorialDetail = entrieRes[0];
+    Resmoretutorial = entrieRes[1];
+    ResallArticle = entrieRes[2];
+
     return {
         props: {
-            tutorialDetail: tutorialDetail ? tutorialDetail : null,
-            moreTutorials: moreTutorials ? moreTutorials : null,
+            RestutorialDetail: RestutorialDetail ? RestutorialDetail : null,
+            Resmoretutorial: Resmoretutorial ? Resmoretutorial : null,
+            ResallArticle: ResallArticle ? ResallArticle : null
         },
         revalidate: 1,
     };
 }
 
-export default function ProjectDetail({ tutorialDetail, moreTutorials }) {
+export default function ProjectDetail({ RestutorialDetail, Resmoretutorial, ResallArticle }) {
+    const dispatch = useAppDispatch();
+    dispatch(fetchAllData(ResallArticle?.all));
 
     return (
         <>
@@ -43,14 +60,14 @@ export default function ProjectDetail({ tutorialDetail, moreTutorials }) {
             <div className="c-blogDetail-root">
                 <BlogDetailHeader
                     contentType="TUTORIAL"
-                    title={tutorialDetail?.fields.title}
-                    slug={tutorialDetail?.fields.slug}
-                    description={tutorialDetail?.fields.description}
-                    date={tutorialDetail?.fields.date}
-                    coverImage={tutorialDetail?.fields.coverImage.fields.file.url}
+                    title={RestutorialDetail?.fields.title}
+                    slug={RestutorialDetail?.fields.slug}
+                    description={RestutorialDetail?.fields.description}
+                    date={RestutorialDetail?.fields.date}
+                    coverImage={RestutorialDetail?.fields.coverImage.fields.file.url}
                 />
-                <BlogDetailBody content={tutorialDetail?.fields.content} />
-                <BlogDetailFooter morePosts={moreTutorials} />
+                <BlogDetailBody content={RestutorialDetail?.fields.content} />
+                <BlogDetailFooter morePosts={Resmoretutorial} />
             </div>
             <NewsLetter />
             <SocialLinkBlock />

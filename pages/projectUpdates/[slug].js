@@ -1,8 +1,3 @@
-import { useRouter } from "next/router";
-import ErrorPage from "next/error";
-// import Layout
-// ---------
-import { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import TopTab from "../../components/TopTab/TopTab";
 import NewsLetter from "../../components/NewsLetter/NewsLetter";
@@ -18,6 +13,9 @@ import {
     getMoreProject,
     getAllProjectWithSlug
 } from "../../lib";
+import { getAllArticle } from "../../lib";
+import { useAppDispatch } from "../../store/hooks";
+import { fetchAllData } from "../../store/AllArticles";
 
 export async function getStaticPaths() {
     const allProjects = await getAllProjectWithSlug();
@@ -28,18 +26,31 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+    let promises = [], entrieRes = [];
+    let ResprojectDetail = [], ResmoreProjects = [], ResallArticle = [];
     const projectDetail = await getProjectBySlug(params.slug);
     const moreProjects = await getMoreProject(params.slug);
+    const allArticle = getAllArticle();
+    promises.push(projectDetail, moreProjects, allArticle);
+    entrieRes = await Promise.all(promises);
+
+    ResprojectDetail = entrieRes[0];
+    ResmoreProjects = entrieRes[1];
+    ResallArticle = entrieRes[2];
+
     return {
         props: {
-            projectDetail: projectDetail ? projectDetail : null,
-            moreProjects: moreProjects ? moreProjects : null,
+            ResprojectDetail: ResprojectDetail ? ResprojectDetail : null,
+            ResmoreProjects: ResmoreProjects ? ResmoreProjects : null,
+            ResallArticle: ResallArticle ? ResallArticle : null,
         },
         revalidate: 1,
     };
 }
 
-export default function ProjectDetail({ projectDetail, moreProjects }) {
+export default function ProjectDetail({ ResprojectDetail, ResmoreProjects, ResallArticle }) {
+    const dispatch = useAppDispatch();
+    dispatch(fetchAllData(ResallArticle?.all));
 
     return (
         <>
@@ -48,14 +59,14 @@ export default function ProjectDetail({ projectDetail, moreProjects }) {
             <div className="c-blogDetail-root">
                 <BlogDetailHeader
                     contentType="PROJECT UPDATE"
-                    title={projectDetail?.fields.title}
-                    slug={projectDetail?.fields.slug}
-                    description={projectDetail?.fields.description}
-                    date={projectDetail?.fields.date}
-                    coverImage={projectDetail?.fields.coverImage.fields.file.url}
+                    title={ResprojectDetail?.fields.title}
+                    slug={ResprojectDetail?.fields.slug}
+                    description={ResprojectDetail?.fields.description}
+                    date={ResprojectDetail?.fields.date}
+                    coverImage={ResprojectDetail?.fields.coverImage.fields.file.url}
                 />
-                <BlogDetailBody content={projectDetail?.fields.content} />
-                <BlogDetailFooter morePosts={moreProjects} />
+                <BlogDetailBody content={ResprojectDetail?.fields.content} />
+                <BlogDetailFooter morePosts={ResmoreProjects} />
             </div>
             <NewsLetter />
             <SocialLinkBlock />

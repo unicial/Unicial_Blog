@@ -6,7 +6,7 @@ interface Props {
 export default function SocialLinkCard({ kind, onClick }: Props) {
   return (
     <>
-      <div className="c-socialLinkCard-root">
+      <div className="c-socialLinkCard-root" onClick={onClick}>
         <div className="c-socialLinkCard-iconContainer">
           {kind === "discord" ? (
             <i className="fab fa-discord c-socialLinkCard-bigsocialIcon"></i>
@@ -15,7 +15,7 @@ export default function SocialLinkCard({ kind, onClick }: Props) {
           ) : kind === "telegram" ? (
             <i className="fab fa-telegram-plane c-socialLinkCard-bigsocialIcon"></i>
           ) : (
-            <i className="fas fa-archive c-socialLinkCard-bigsocialIcon"></i>
+            <i className="fab fa-facebook c-socialLinkCard-bigsocialIcon"></i>
           )}
         </div>
         <div className="c-socialLinkCard-letterContainer">
@@ -25,7 +25,7 @@ export default function SocialLinkCard({ kind, onClick }: Props) {
             ? "Follow us on "
             : kind === "telegram"
             ? "Join us on "
-            : "Get started with our "}
+            : "Join us our "}
           &nbsp;
           <span className="c-socialLinkCard-boldLetter">
             {kind === "discord"

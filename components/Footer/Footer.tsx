@@ -10,39 +10,53 @@ export default function Footer() {
               <LanguageMenuBar data={languageData} />
             </div>
             <div className="c-footer-middleDivide"></div>
-            <div className="c-footer-description">
-              © 2022 Decentraland CC BY-SA 3.0
-            </div>
+            <div className="c-footer-description">© 2022 Unicial</div>
           </div>
           <div className="c-footer-rightPart-root">
             <div className="c-footer-rightPart-container">
               <div className="c-footer-commonLinkRoot">
                 <div className="c-footer-commonLinkContainer">
-                  <a className="c-footer-commonLink" href="#">
+                  <a className="c-footer-commonLink" href="/">
                     Home
                   </a>
-                  <a className="c-footer-commonLink" href="#">
+                  {/* <a className="c-footer-commonLink" href="#">
                     Legal Information
                   </a>
                   <a className="c-footer-commonLink" href="#">
                     Press Kit
-                  </a>
+                  </a> */}
                 </div>
               </div>
               <div className="c-footer-socialLinkRoot">
                 <div className="c-footer-socialLinkContainer">
-                  <div className="c-footer-socialIcon-container">
+                  <a
+                    href="https://discord.gg/JEPcm4YD"
+                    target="_blank"
+                    className="c-footer-socialIcon-container"
+                  >
                     <i className="fab fa-discord c-footer-socialIcon"></i>
-                  </div>
-                  <div className="c-footer-socialIcon-container">
+                  </a>
+                  <a
+                    href=" https://www.reddit.com/r/ZilionixxBlockchain/"
+                    target="_blank"
+                    className="c-footer-socialIcon-container"
+                  >
                     <i className="fab fa-reddit-alien c-footer-socialIcon"></i>
-                  </div>
-                  <div className="c-footer-socialIcon-container">
+                  </a>
+                  <a
+                    href="https://github.com/unicial/"
+                    target="_blank"
+                    className="c-footer-socialIcon-container"
+                  >
                     <i className="fab fa-github c-footer-socialIcon"></i>
-                  </div>
-                  <div className="c-footer-socialIcon-container">
+                  </a>
+                  <a
+                    href="https://twitter.com/zilionixx"
+                    target="_blank"
+                    className="c-footer-socialIcon-container"
+                  >
                     <i className="fab fa-twitter c-footer-socialIcon"></i>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>

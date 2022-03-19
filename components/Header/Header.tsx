@@ -6,6 +6,7 @@ import HeaderSignInBtn from "../HeaderSignInBtn/HeaderSignInBtn";
 import HeaderMobileMenu from "../HeaderMobileMenu/HeaderMobileMenu";
 import { headerLinkData } from "../../config/constant";
 import Link from "next/link";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function Header() {
   const { t } = useTranslation();
@@ -13,6 +14,20 @@ export default function Header() {
   const [headerActive, setHeaderActive] = useState(6);
   const handleHeaderLink = (index: number) => {
     setHeaderActive(index);
+    switch (index) {
+      case 1:
+        window.open("https://marketplace.unicial.org/");
+        break;
+      case 3:
+        window.open("https://doc.unicial.org/");
+        break;
+      case 6:
+        window.open("https://blog.unicial.org/");
+        break;
+      default:
+        window.open("/");
+        break;
+    }
   };
   return (
     <>
@@ -48,61 +63,16 @@ export default function Header() {
             <Button
               className={clsx("c-header-nav", {
                 ["c-header-nav-active"]:
-                  headerActive === headerLinkData.builder,
+                  headerActive === headerLinkData.documents,
               })}
               disableRipple
-              onClick={() => handleHeaderLink(headerLinkData.builder)}
+              onClick={() => handleHeaderLink(headerLinkData.documents)}
             >
               <span></span>
-              <span>{t("Builder")}</span>
+              <span>{t("Documents")}</span>
               <span
                 className={clsx("none-border", {
-                  ["active-border"]: headerActive === headerLinkData.builder,
-                })}
-              ></span>
-            </Button>
-            <Button
-              className={clsx("c-header-nav", {
-                ["c-header-nav-active"]: headerActive === headerLinkData.docs,
-              })}
-              disableRipple
-              onClick={() => handleHeaderLink(headerLinkData.docs)}
-            >
-              <span></span>
-              <span>{t("Docs")}</span>
-              <span
-                className={clsx("none-border", {
-                  ["active-border"]: headerActive === headerLinkData.docs,
-                })}
-              ></span>
-            </Button>
-            <Button
-              className={clsx("c-header-nav", {
-                ["c-header-nav-active"]: headerActive === headerLinkData.events,
-              })}
-              disableRipple
-              onClick={() => handleHeaderLink(headerLinkData.events)}
-            >
-              <span></span>
-              <span>{t("Events")}</span>
-              <span
-                className={clsx("none-border", {
-                  ["active-border"]: headerActive === headerLinkData.events,
-                })}
-              ></span>
-            </Button>
-            <Button
-              className={clsx("c-header-nav", {
-                ["c-header-nav-active"]: headerActive === headerLinkData.dao,
-              })}
-              disableRipple
-              onClick={() => handleHeaderLink(headerLinkData.dao)}
-            >
-              <span></span>
-              <span>{t("DAO")}</span>
-              <span
-                className={clsx("none-border", {
-                  ["active-border"]: headerActive === headerLinkData.dao,
+                  ["active-border"]: headerActive === headerLinkData.documents,
                 })}
               ></span>
             </Button>
@@ -123,7 +93,8 @@ export default function Header() {
             </Button>
           </div>
           <HeaderMobileMenu />
-          {loginAddress ? <div>Already logged</div> : <HeaderSignInBtn />}
+          {/* {loginAddress ? <div>Already logged</div> : <HeaderSignInBtn />} */}
+          <SearchBar />
         </div>
       </div>
     </>

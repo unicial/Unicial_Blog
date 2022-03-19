@@ -25,7 +25,7 @@ const Layout = ({ children, title, description }) => {
                     }
                     key="og:description"
                 />
-                <link rel="icon" href="/favicon.ico" />
+                <link rel="icon" href="/logo.svg" />
                 <link
                     rel="stylesheet"
                     href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"

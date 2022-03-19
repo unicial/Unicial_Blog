@@ -25,6 +25,9 @@
   .c-header-menucontainer {
     display: none;
   }
+  .c-header-mobile-logo {
+    margin-right: 50px !important;
+  }
 }
 .c-header-logoContainer {
   display: flex;
@@ -55,7 +58,7 @@
   font-size: 16px !important;
   line-height: 18px !important ;
   height: 100%;
-  margin: 0px 10px !important;
+  margin: 0px 20px !important;
 }
 .c-header-nav:hover {
   cursor: pointer;

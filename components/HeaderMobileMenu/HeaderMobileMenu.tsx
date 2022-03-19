@@ -24,10 +24,16 @@ const HeaderMobileMenu = () => {
     setOpen(false);
     switch (index) {
       case 1:
-        window.location.href = "/";
+        window.open("https://marketplace.unicial.org/");
+        break;
+      case 3:
+        window.open("https://doc.unicial.org/");
+        break;
+      case 6:
+        window.open("https://blog.unicial.org/");
         break;
       default:
-        window.location.href = "/";
+        window.open("/");
         break;
     }
   };
@@ -69,31 +75,10 @@ const HeaderMobileMenu = () => {
               </ListItem>
               <ListItem
                 button
-                onClick={() => handleHeaderLink(headerLinkData.builder)}
+                onClick={() => handleHeaderLink(headerLinkData.documents)}
                 disableRipple
               >
-                <ListItemText primary={t("Builder")} />
-              </ListItem>
-              <ListItem
-                button
-                onClick={() => handleHeaderLink(headerLinkData.docs)}
-                disableRipple
-              >
-                <ListItemText primary={t("Docs")} />
-              </ListItem>
-              <ListItem
-                button
-                onClick={() => handleHeaderLink(headerLinkData.events)}
-                disableRipple
-              >
-                <ListItemText primary={t("Events")} />
-              </ListItem>
-              <ListItem
-                button
-                onClick={() => handleHeaderLink(headerLinkData.dao)}
-                disableRipple
-              >
-                <ListItemText primary={t("DAO")} />
+                <ListItemText primary={t("Documents")} />
               </ListItem>
               <ListItem
                 button
