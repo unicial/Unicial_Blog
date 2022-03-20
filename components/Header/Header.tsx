@@ -1,17 +1,53 @@
 import { Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
-import HeaderSignInBtn from "../HeaderSignInBtn/HeaderSignInBtn";
 import HeaderMobileMenu from "../HeaderMobileMenu/HeaderMobileMenu";
 import { headerLinkData } from "../../config/constant";
 import Link from "next/link";
 import SearchBar from "../SearchBar/SearchBar";
 
+interface Props {
+  scrolltotop: boolean;
+}
+
+function ScrollTop({ scrolltotop }: Props) {
+  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    const anchor = (
+      (event.target as HTMLDivElement).ownerDocument || document
+    ).querySelector("#back-to-top-anchor");
+
+    if (anchor) {
+      anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
+  return (
+    <div className={scrolltotop ? "c-scroll-top" : "c-scroll-top-disable"}>
+      <span onClick={handleClick} role="presentation">
+        <i className="fas fa-chevron-up c-scroll-top-icon"></i>
+      </span>
+    </div>
+  );
+}
+
 export default function Header() {
   const { t } = useTranslation();
-  const loginAddress = false;
   const [headerActive, setHeaderActive] = useState(6);
+
+  const [scrolltotop, setScrolltotop] = useState(false);
+  const handleScroll = () => {
+    if (window.scrollY > 65) {
+      setScrolltotop(true);
+    } else if (window.scrollY < 90) {
+      setScrolltotop(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  });
+
   const handleHeaderLink = (index: number) => {
     setHeaderActive(index);
     switch (index) {
@@ -34,8 +70,7 @@ export default function Header() {
       <div className="c-header-root">
         <div className="c-header-container">
           <div className="c-header-menucontainer">
-            {/* <div className="c-header-logoContainer "> */}
-            <Link href="/">
+            <Link href="https://unicial.org/">
               <a className="c-header-logoContainer ">
                 <img
                   src="/images/logo.svg"
@@ -45,7 +80,6 @@ export default function Header() {
                 <span className="c-header-logoName">Unicial</span>
               </a>
             </Link>
-            {/* </div> */}
             <Button
               className="c-header-nav"
               disableRipple
@@ -93,10 +127,11 @@ export default function Header() {
             </Button>
           </div>
           <HeaderMobileMenu />
-          {/* {loginAddress ? <div>Already logged</div> : <HeaderSignInBtn />} */}
           <SearchBar />
         </div>
       </div>
+      <div id="back-to-top-anchor" />
+      <ScrollTop scrolltotop={scrolltotop} />
     </>
   );
 }
