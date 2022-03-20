@@ -71,7 +71,6 @@
   padding: 10px 16px;
   cursor: pointer;
   position: relative;
-  position: relative;
 }
 .c-searchBar-menuItem.MuiMenuItem-root {
   width: 400px;
@@ -97,8 +96,8 @@
 }
 .c-searchBar-popover {
   position: absolute;
-  top: 70px;
-  right: 185px;
+  top: 53px;
+  right: 0px;
   background-color: #1a1f37;
   z-index: 99;
   border-radius: 10px;
@@ -110,7 +109,7 @@
 }
 
 /* ------------- */
-.c-searchBarRoot {
+.c-searchBar {
   display: flex;
   flex-direction: row;
   position: relative;
@@ -137,8 +136,8 @@
   height: 220px;
   padding: 30px 0px 55px;
   position: absolute;
-  top: 70px;
-  right: 190px;
+  top: 53px;
+  right: 0px;
   background-color: #1a1f37;
   z-index: 99;
   display: flex;

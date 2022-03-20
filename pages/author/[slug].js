@@ -4,6 +4,10 @@ import TopTab from "../../components/TopTab/TopTab";
 import Footer from "../../components/Footer/Footer";
 
 import { getAuthorBySlug, getAllAuthorWithSlug, getAllAuthorArticle } from "../../lib";
+import { getAllArticle } from "../../lib";
+import { useAppDispatch } from "../../store/hooks";
+import { fetchAllData } from "../../store/AllArticles";
+
 import { useEffect, useState } from "react";
 
 export async function getStaticPaths() {
@@ -15,31 +19,44 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-    const authorDetail = await getAuthorBySlug(params.slug);
+    let promises = [], entrieRes = [];
+    let ResauthorDetail = [], ResallArticle = [];
+    const authorDetail = getAuthorBySlug(params.slug);
+    const allArticle = getAllArticle();
+    promises.push(authorDetail, allArticle);
+    entrieRes = await Promise.all(promises);
+
+    ResauthorDetail = entrieRes[0];
+    ResallArticle = entrieRes[1];
+
     return {
         props: {
-            authorDetail: authorDetail ? authorDetail : null,
+            ResauthorDetail: ResauthorDetail ? ResauthorDetail : null,
+            ResallArticle: ResallArticle ? ResallArticle : null,
         },
         revalidate: 1,
     };
 }
 
-export default function Author({ authorDetail }) {
+export default function Author({ ResauthorDetail, ResallArticle }) {
+    const dispatch = useAppDispatch()
+    dispatch(fetchAllData(ResallArticle?.all));
+
     const [allAuthorsArticle, setAllAuthorsArticle] = useState();
 
     useEffect(() => {
-        getAllAuthorArticle(authorDetail?.fields?.name).then((e) => {
+        getAllAuthorArticle(ResauthorDetail?.fields?.name).then((e) => {
             if (e?.length > 0) {
                 setAllAuthorsArticle(e);
             }
         });
-    }, [authorDetail?.fields?.name]);
+    }, [ResauthorDetail?.fields?.name]);
 
     return (
         <>
             <Header />
             <TopTab />
-            <AuthorDetail authorDetail={authorDetail} allAuthorsArticle={allAuthorsArticle} />
+            <AuthorDetail authorDetail={ResauthorDetail} allAuthorsArticle={allAuthorsArticle} />
             <Footer />
         </>
     )

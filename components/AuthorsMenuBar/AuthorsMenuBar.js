@@ -5,43 +5,52 @@ import { Popover, MenuItem } from "@material-ui/core";
 import clsx from "clsx";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
-import { getAllAnnouncement } from "../../lib";
+import { getAllArticle } from "../../lib";
+import { useRouter } from "next/router";
 
 export default function AuthorsMenuBar() {
   const [itemName, setitemName] = React.useState(null);
   const [allAuthors, setAllAuthors] = useState();
   const [uniqueAuthors, setUniqueAuthors] = useState();
+  const router = useRouter();
 
   useEffect(() => {
-    getAllAnnouncement().then((e) => {
-      if (e?.length > 0) {
-        setAllAuthors(e);
-        setitemName(e[0]?.fields.author.fields.name);
+    getAllArticle().then((e) => {
+      console.log("path test", router.asPath.toUpperCase());
+      if (e?.all?.length > 0) {
+        console.log("eeeerr", e);
 
-        //
-        let allAuthorsLength = e?.length !== undefined ? e?.length : 0;
+        setAllAuthors(e.all);
+
+        let allAuthorsLength = e?.all?.length !== undefined ? e?.all?.length : 0;
         let uniqueAllAuthors = [];
         let uniqueAllAuthorsSet = new Set();
 
         for (var i = 0; i < allAuthorsLength; i++) {
-          uniqueAllAuthorsSet.add(e[i]?.fields.author.fields.authorId);
+          uniqueAllAuthorsSet.add(e?.all[i]?.fields.author.fields.authorId);
         }
         // console.log("uniqueAllAuthorsSet.size", uniqueAllAuthorsSet.size);
         for (var i = allAuthorsLength - 1; i >= 0; i--) {
           if (uniqueAllAuthorsSet.size === 0) break;
-          if (uniqueAllAuthorsSet.has(e[i]?.fields.author.fields.authorId)) {
-            uniqueAllAuthors.push(e[i]);
+          if (uniqueAllAuthorsSet.has(e?.all[i]?.fields.author.fields.authorId)) {
+            uniqueAllAuthors.push(e?.all[i]);
           }
-          uniqueAllAuthorsSet.delete(e[i].fields.author.fields.authorId);
+          uniqueAllAuthorsSet.delete(e?.all[i].fields.author.fields.authorId);
         }
         setUniqueAuthors(uniqueAllAuthors);
-        // console.log("uniqueallauthorsData", uniqueAllAuthors);
+        for (let i = 0; i < uniqueAllAuthors.length; i++) {
+          if (router.asPath.includes(uniqueAllAuthors[i]?.fields?.author?.fields?.slug)) {
+            setitemName(uniqueAllAuthors[i]?.fields?.author?.fields?.name);
+          }
+          else {
+          }
+        }
+        console.log("uniqueallauthorsData", uniqueAllAuthors);
+      } else {
+        // console.log("no data");
       }
-      // console.log("no data");
     });
-  }, []);
-
-  // console.log("allAuthors", allAuthors);
+  }, [router]);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const handleOpen = (event) => {
@@ -52,7 +61,6 @@ export default function AuthorsMenuBar() {
   };
 
   const handleItem = (index) => {
-    // console.log(uniqueAuthors[index]?.fields.author.fields.authorId);
     if (uniqueAuthors) {
       let selItemName =
         uniqueAuthors[index]?.fields.author.fields.authorId !== undefined
@@ -115,7 +123,7 @@ export default function AuthorsMenuBar() {
                 />
                 <Box
                   className={clsx("c-author-listLabel", {
-                    ["c-author-activeListLabel"]: itemName === item.name,
+                    ["c-author-activeListLabel"]: itemName === item.fields.author.fields.name,
                   })}
                 >
                   {item.fields.author.fields.name}
