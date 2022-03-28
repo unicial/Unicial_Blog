@@ -1,12 +1,39 @@
 import { Grid } from "@material-ui/core";
 import ArticleCard from "../../ArticleCard/ArticleCard";
 import CommonBtn from "../../Base/CommonBtn";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { initCount, showmoreCount } from '../../../config/constant'
 
 export default function AuthorDetail({ authorDetail, allAuthorsArticle }) {
-    const [showMoreCount, setShowMoreCount] = useState(3);
+    const [showCount, setShowCount] = useState(0);
+    const [ismoreOrless, setIsmoreOrless] = useState("more");
+    const totalAuthorArticleCount = allAuthorsArticle?.length;
+
+    const [shown, setShown] = useState(true);
+
+    useEffect(() => {
+        if (totalAuthorArticleCount <= initCount) {
+            setShowCount(totalAuthorArticleCount);
+            setShown(false);
+        } else {
+            setShown(true);
+            if (ismoreOrless === "more") {
+                setShowCount(initCount);
+            } else {
+                setShowCount(totalAuthorArticleCount)
+            }
+        }
+    }, [totalAuthorArticleCount])
+
     const handleLoadMore = () => {
-        setShowMoreCount(showMoreCount + 3)
+        if (showCount + showmoreCount >= totalAuthorArticleCount)
+            setIsmoreOrless("less");
+        setShowCount(showCount + showmoreCount);
+
+    }
+    const handleLoadLess = () => {
+        setShowCount(initCount);
+        setIsmoreOrless("more");
     }
     // console.log("authorDetail", authorDetail);
 
@@ -22,7 +49,7 @@ export default function AuthorDetail({ authorDetail, allAuthorsArticle }) {
                 </div>
                 <div className="c-authorDetail-photoesContainer">
                     <Grid container spacing={4}>
-                        {allAuthorsArticle?.slice(0, showMoreCount).map((authorArticle, key) => (
+                        {allAuthorsArticle?.slice(0, showCount).map((authorArticle, key) => (
                             <Grid item xs={12} sm={6} md={4} key={key}>
                                 <ArticleCard
                                     contentType={authorArticle.sys.contentType.sys.id}
@@ -37,13 +64,26 @@ export default function AuthorDetail({ authorDetail, allAuthorsArticle }) {
                     </Grid>
                 </div>
                 <div className="c-authorDetail-loadMoreBtnRoot">
-                    <div className="c-allArticles-loadMoreBtnContainer">
-                        <CommonBtn letter="LOAD MORE"
-                            onClick={handleLoadMore}
-                        >
-                            <i className="far fa-arrow-right c-base-rightArrow"></i>
-                        </CommonBtn>
-                    </div>
+                    {shown && (
+                        ismoreOrless === "more" ? (
+                            <div className="c-allArticles-loadMoreBtnContainer">
+                                <CommonBtn letter="LOAD MORE"
+                                    onClick={handleLoadMore}
+                                >
+                                    <i className="far fa-arrow-right c-base-rightArrow"></i>
+                                </CommonBtn>
+                            </div>
+                        ) : (
+                            <div className="c-allArticles-loadMoreBtnContainer">
+                                <CommonBtn letter="LOAD LESS"
+                                    onClick={handleLoadLess}
+                                >
+                                    <i className="far fa-arrow-right c-base-rightArrow"></i>
+                                </CommonBtn>
+                            </div>
+                        )
+                    )}
+
                 </div>
             </div>
         </>

@@ -16,9 +16,7 @@ export default function AuthorsMenuBar() {
 
   useEffect(() => {
     getAllArticle().then((e) => {
-      console.log("path test", router.asPath.toUpperCase());
       if (e?.all?.length > 0) {
-        console.log("eeeerr", e);
 
         setAllAuthors(e.all);
 
@@ -45,7 +43,7 @@ export default function AuthorsMenuBar() {
           else {
           }
         }
-        console.log("uniqueallauthorsData", uniqueAllAuthors);
+        // console.log("uniqueallauthorsData", uniqueAllAuthors);
       } else {
         // console.log("no data");
       }

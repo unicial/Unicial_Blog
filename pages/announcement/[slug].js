@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log("params", params);
+  // console.log("params", params);
   let promises = [], entrieRes = [];
   let ResannouncementDetail = [], ResmoreAnnouncements = [], ResallArticle = [];
 
@@ -48,7 +48,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function BlogDetail({ ResannouncementDetail, ResmoreAnnouncements, ResallArticle, }) {
-  console.log("slug_allarticle", ResallArticle);
+  // console.log("slug_allarticle", ResallArticle);
 
   const dispatch = useAppDispatch();
 
