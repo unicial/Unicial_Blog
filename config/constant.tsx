@@ -1,3 +1,5 @@
+export const initCount = 3;
+export const showmoreCount = 3;
 export const headerLinkData = {
   marketplace: 1,
   builder: 2,
