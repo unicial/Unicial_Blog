@@ -34,7 +34,7 @@ export default async (req: any, res: any) => {
     const tagData = {
       contactTag: {
         contact: response.data.contact.id,
-        tag: "0",
+        tag: "1",
       },
     };
     const respTag = await axios.post(tagUrl, tagData, { headers });
