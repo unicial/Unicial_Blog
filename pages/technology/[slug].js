@@ -9,69 +9,77 @@ import BlogDetailBody from "../../components/BlogDetail/BlogDetailBody/BlogDetai
 import BlogDetailFooter from "../../components/BlogDetail/BlogDetailFooter/BlogDetailFooter";
 
 import {
-    getTechnologyBySlug,
-    getMoreTechnology,
-    getAllTechnologyWithSlug
+  getTechnologyBySlug,
+  getMoreTechnology,
+  getAllTechnologyWithSlug,
 } from "../../lib";
 import { getAllArticle } from "../../lib";
 import { useAppDispatch } from "../../store/hooks";
 import { fetchAllData } from "../../store/AllArticles";
+import Alert from "../../components/Base/Alert";
 
 export async function getStaticPaths() {
-    const allTechnology = await getAllTechnologyWithSlug();
-    return {
-        paths: allTechnology?.map(({ slug }) => `/technology/${slug}`) ?? [],
-        fallback: true,
-    };
+  const allTechnology = await getAllTechnologyWithSlug();
+  return {
+    paths: allTechnology?.map(({ slug }) => `/technology/${slug}`) ?? [],
+    fallback: true,
+  };
 }
 
 export async function getStaticProps({ params }) {
-    let promises = [], entrieRes = [];
-    let RestechnologyDetail = [], ResmoreTechnology = [], ResallArticle = [];
+  let promises = [],
+    entrieRes = [];
+  let RestechnologyDetail = [],
+    ResmoreTechnology = [],
+    ResallArticle = [];
 
-    const technologyDetail = getTechnologyBySlug(params.slug);
-    const moreTechnology = getMoreTechnology(params.slug);
-    const allArticle = getAllArticle();
+  const technologyDetail = getTechnologyBySlug(params.slug);
+  const moreTechnology = getMoreTechnology(params.slug);
+  const allArticle = getAllArticle();
 
-    promises.push(technologyDetail, moreTechnology, allArticle);
-    entrieRes = await Promise.all(promises);
-    RestechnologyDetail = entrieRes[0];
-    ResmoreTechnology = entrieRes[1];
-    ResallArticle = entrieRes[2];
+  promises.push(technologyDetail, moreTechnology, allArticle);
+  entrieRes = await Promise.all(promises);
+  RestechnologyDetail = entrieRes[0];
+  ResmoreTechnology = entrieRes[1];
+  ResallArticle = entrieRes[2];
 
-    return {
-        props: {
-            RestechnologyDetail: RestechnologyDetail ? RestechnologyDetail : null,
-            ResmoreTechnology: ResmoreTechnology ? ResmoreTechnology : null,
-            ResallArticle: ResallArticle ? ResallArticle : null,
-        },
-        revalidate: 1,
-    };
+  return {
+    props: {
+      RestechnologyDetail: RestechnologyDetail ? RestechnologyDetail : null,
+      ResmoreTechnology: ResmoreTechnology ? ResmoreTechnology : null,
+      ResallArticle: ResallArticle ? ResallArticle : null,
+    },
+    revalidate: 1,
+  };
 }
 
-export default function TechnologyDetail({ RestechnologyDetail, ResmoreTechnology, ResallArticle }) {
-
-    const dispatch = useAppDispatch();
-    dispatch(fetchAllData(ResallArticle?.all));
-    return (
-        <>
-            <Header />
-            <TopTab />
-            <div className="c-blogDetail-root">
-                <BlogDetailHeader
-                    contentType="TECHNOLOGY"
-                    title={RestechnologyDetail?.fields.title}
-                    slug={RestechnologyDetail?.fields.slug}
-                    description={RestechnologyDetail?.fields.description}
-                    date={RestechnologyDetail?.fields.date}
-                    coverImage={RestechnologyDetail?.fields.coverImage.fields.file.url}
-                />
-                <BlogDetailBody content={RestechnologyDetail?.fields.content} />
-                <BlogDetailFooter morePosts={ResmoreTechnology} />
-            </div>
-            <NewsLetter />
-            <SocialLinkBlock />
-            <Footer />
-        </>
-    );
+export default function TechnologyDetail({
+  RestechnologyDetail,
+  ResmoreTechnology,
+  ResallArticle,
+}) {
+  const dispatch = useAppDispatch();
+  dispatch(fetchAllData(ResallArticle?.all));
+  return (
+    <>
+      <Header />
+      <TopTab />
+      <div className="c-blogDetail-root">
+        <BlogDetailHeader
+          contentType="TECHNOLOGY"
+          title={RestechnologyDetail?.fields.title}
+          slug={RestechnologyDetail?.fields.slug}
+          description={RestechnologyDetail?.fields.description}
+          date={RestechnologyDetail?.fields.date}
+          coverImage={RestechnologyDetail?.fields.coverImage.fields.file.url}
+        />
+        <BlogDetailBody content={RestechnologyDetail?.fields.content} />
+        <BlogDetailFooter morePosts={ResmoreTechnology} />
+      </div>
+      <NewsLetter />
+      <SocialLinkBlock />
+      <Footer />
+      <Alert />
+    </>
+  );
 }

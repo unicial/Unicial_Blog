@@ -23,6 +23,7 @@ import "../styles/blogTable.css";
 import "../styles/testCard.scss";
 import "../styles/authorDetail.css";
 import "../styles/searchBar.css";
+import "../styles/alert.css";
 import type { AppProps } from "next/app";
 import App from "next/app";
 import React from "react";

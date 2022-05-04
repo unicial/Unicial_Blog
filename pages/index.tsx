@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { useAppDispatch } from "../store/hooks";
 import { fetchAllData } from "../store/AllArticles";
 import { fetchAnnouncementData } from "../store/Announcement";
+import Alert from "../components/Base/Alert";
 
 const Home: NextPage = () => {
   const [allArticle, setAllArticle] = useState<any | null>();
@@ -58,6 +59,7 @@ const Home: NextPage = () => {
       <NewsLetter />
       <SocialLinkBlock />
       <Footer />
+      <Alert />
     </div>
   );
 };

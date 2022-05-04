@@ -8,11 +8,16 @@ import BlogDetailHeader from "../../components/BlogDetail/BlogDetailHeader/BlogD
 import BlogDetailBody from "../../components/BlogDetail/BlogDetailBody/BlogDetailBody";
 import BlogDetailFooter from "../../components/BlogDetail/BlogDetailFooter/BlogDetailFooter";
 
-import { getAnnouncementBySlug, getMoreAnnouncement, getAllAnnouncementWithSlug } from "../../lib";
+import {
+  getAnnouncementBySlug,
+  getMoreAnnouncement,
+  getAllAnnouncementWithSlug,
+} from "../../lib";
 import { getAllArticle } from "../../lib";
 
 import { useAppDispatch } from "../../store/hooks";
 import { fetchAllData } from "../../store/AllArticles";
+import Alert from "../../components/Base/Alert";
 
 export async function getStaticPaths() {
   const allAnnouncements = await getAllAnnouncementWithSlug();
@@ -24,8 +29,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // console.log("params", params);
-  let promises = [], entrieRes = [];
-  let ResannouncementDetail = [], ResmoreAnnouncements = [], ResallArticle = [];
+  let promises = [],
+    entrieRes = [];
+  let ResannouncementDetail = [],
+    ResmoreAnnouncements = [],
+    ResallArticle = [];
 
   const announcementDetail = getAnnouncementBySlug(params.slug);
   const moreAnnouncements = getMoreAnnouncement(params.slug);
@@ -39,7 +47,9 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      ResannouncementDetail: ResannouncementDetail ? ResannouncementDetail : null,
+      ResannouncementDetail: ResannouncementDetail
+        ? ResannouncementDetail
+        : null,
       ResmoreAnnouncements: ResmoreAnnouncements ? ResmoreAnnouncements : null,
       ResallArticle: ResallArticle ? ResallArticle : null,
     },
@@ -47,7 +57,11 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export default function BlogDetail({ ResannouncementDetail, ResmoreAnnouncements, ResallArticle, }) {
+export default function BlogDetail({
+  ResannouncementDetail,
+  ResmoreAnnouncements,
+  ResallArticle,
+}) {
   // console.log("slug_allarticle", ResallArticle);
 
   const dispatch = useAppDispatch();
@@ -72,6 +86,7 @@ export default function BlogDetail({ ResannouncementDetail, ResmoreAnnouncements
       <NewsLetter />
       <SocialLinkBlock />
       <Footer />
+      <Alert />
     </>
   );
 }

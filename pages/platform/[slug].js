@@ -10,69 +10,77 @@ import BlogDetailFooter from "../../components/BlogDetail/BlogDetailFooter/BlogD
 import { getAllArticle } from "../../lib";
 
 import {
-    getPlatformBySlug,
-    getMorePlatform,
-    getAllPlatformWithSlug
+  getPlatformBySlug,
+  getMorePlatform,
+  getAllPlatformWithSlug,
 } from "../../lib";
 import { useAppDispatch } from "../../store/hooks";
 import { fetchAllData } from "../../store/AllArticles";
+import Alert from "../../components/Base/Alert";
 
 export async function getStaticPaths() {
-    const allPlatforms = await getAllPlatformWithSlug();
-    return {
-        paths: allPlatforms?.map(({ slug }) => `/platform/${slug}`) ?? [],
-        fallback: true,
-    };
+  const allPlatforms = await getAllPlatformWithSlug();
+  return {
+    paths: allPlatforms?.map(({ slug }) => `/platform/${slug}`) ?? [],
+    fallback: true,
+  };
 }
 
 export async function getStaticProps({ params }) {
-    let promises = [], entrieRes = [];
-    let ResplatformDetail = [], ResmorePlatforms = [],
-        ResallArticle = [];
+  let promises = [],
+    entrieRes = [];
+  let ResplatformDetail = [],
+    ResmorePlatforms = [],
+    ResallArticle = [];
 
-    const platformDetail = getPlatformBySlug(params.slug);
-    const morePlatforms = getMorePlatform(params.slug);
-    const allArticle = getAllArticle();
+  const platformDetail = getPlatformBySlug(params.slug);
+  const morePlatforms = getMorePlatform(params.slug);
+  const allArticle = getAllArticle();
 
-    promises.push(platformDetail, morePlatforms, allArticle);
-    entrieRes = await Promise.all(promises);
+  promises.push(platformDetail, morePlatforms, allArticle);
+  entrieRes = await Promise.all(promises);
 
-    ResplatformDetail = entrieRes[0];
-    ResmorePlatforms = entrieRes[1];
-    ResallArticle = entrieRes[2];
+  ResplatformDetail = entrieRes[0];
+  ResmorePlatforms = entrieRes[1];
+  ResallArticle = entrieRes[2];
 
-    return {
-        props: {
-            ResplatformDetail: ResplatformDetail ? ResplatformDetail : null,
-            ResmorePlatforms: ResmorePlatforms ? ResmorePlatforms : null,
-            ResallArticle: ResallArticle ? ResallArticle : null,
-        },
-        revalidate: 1,
-    };
+  return {
+    props: {
+      ResplatformDetail: ResplatformDetail ? ResplatformDetail : null,
+      ResmorePlatforms: ResmorePlatforms ? ResmorePlatforms : null,
+      ResallArticle: ResallArticle ? ResallArticle : null,
+    },
+    revalidate: 1,
+  };
 }
 
-export default function PlatformDetail({ ResplatformDetail, ResmorePlatforms, ResallArticle }) {
-    const dispatch = useAppDispatch();
-    dispatch(fetchAllData(ResallArticle?.all))
-    return (
-        <>
-            <Header />
-            <TopTab />
-            <div className="c-blogDetail-root">
-                <BlogDetailHeader
-                    contentType="PLATFORM"
-                    title={ResplatformDetail?.fields.title}
-                    slug={ResplatformDetail?.fields.slug}
-                    description={ResplatformDetail?.fields.description}
-                    date={ResplatformDetail?.fields.date}
-                    coverImage={ResplatformDetail?.fields.coverImage.fields.file.url}
-                />
-                <BlogDetailBody content={ResplatformDetail?.fields.content} />
-                <BlogDetailFooter morePosts={ResmorePlatforms} />
-            </div>
-            <NewsLetter />
-            <SocialLinkBlock />
-            <Footer />
-        </>
-    );
+export default function PlatformDetail({
+  ResplatformDetail,
+  ResmorePlatforms,
+  ResallArticle,
+}) {
+  const dispatch = useAppDispatch();
+  dispatch(fetchAllData(ResallArticle?.all));
+  return (
+    <>
+      <Header />
+      <TopTab />
+      <div className="c-blogDetail-root">
+        <BlogDetailHeader
+          contentType="PLATFORM"
+          title={ResplatformDetail?.fields.title}
+          slug={ResplatformDetail?.fields.slug}
+          description={ResplatformDetail?.fields.description}
+          date={ResplatformDetail?.fields.date}
+          coverImage={ResplatformDetail?.fields.coverImage.fields.file.url}
+        />
+        <BlogDetailBody content={ResplatformDetail?.fields.content} />
+        <BlogDetailFooter morePosts={ResmorePlatforms} />
+      </div>
+      <NewsLetter />
+      <SocialLinkBlock />
+      <Footer />
+      <Alert />
+    </>
+  );
 }

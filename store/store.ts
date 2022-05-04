@@ -6,6 +6,7 @@ import ProjectUpdateReducer from "./ProjectUpdate";
 import PlatformReducer from "./Platform";
 import TechnologyReducer from "./Technology";
 import TutorialReducer from "./Tutorial";
+import alertReducer from "./alert/index";
 
 export const store = configureStore({
   reducer: {
@@ -15,6 +16,7 @@ export const store = configureStore({
     Platform: PlatformReducer,
     Technology: TechnologyReducer,
     Tutorial: TutorialReducer,
+    alert: alertReducer,
   },
 });
 
